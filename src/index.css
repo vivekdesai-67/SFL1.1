@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Industrial Design System - Sangam Fasteners — Dark Theme */
+    --background: 220 40% 4%;       /* #070B14 — Home page background */
+    --foreground: 0 0% 100%;        /* White */
+
+    --card: 220 35% 8%;             /* #0D1526 — Slightly lighter dark */
+    --card-foreground: 0 0% 100%;
+
+    --popover: 220 35% 8%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Primary = SFL Navy hero banners */
+    --primary: 217 65% 11%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 30% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 30% 12%;
+    --muted-foreground: 215 20% 60%; /* Slate-300 style */
+
+    --accent: 220 30% 14%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 2 78% 47%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 30% 20%;          /* Subtle dark border */
+    --input: 220 30% 12%;
+    --ring: 206 91.5% 53%;
+
+    --radius: 12px;                  /* Rounded corners for premium feel */
+
+    /* ─── SFL Brand Colour Tokens ─── */
+    --sfl-blue: 206 91.5% 53%;
+    --sfl-blue-foreground: 0 0% 100%;
+    --sfl-navy: 217 65% 11%;
+    --sfl-navy-foreground: 0 0% 100%;
+    --sfl-gold: 46 65% 52%;
+    --sfl-gold-foreground: 0 0% 0%;
+
+    --industrial-black: 0 0% 5%;
+    --athens-gray: 220 40% 4%;
+    --platinum-slate: 220 30% 20%;
+
+    /* Glassmorphism Refined */
+    --glass-bg: 220 40% 100% / 0.03;
+    --glass-blur: 16px;
+    --glass-border: 0 0% 100% / 0.08;
+    --glass-border-bright: 0 0% 100% / 0.15;
+
+    /* Premium Shadows */
+    --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    --shadow-elevated: 0 16px 48px 0 rgba(0, 0, 0, 0.5);
+    --shadow-blue: 0 8px 32px 0 rgba(25, 148, 245, 0.15);
+
+    --sidebar-background: 217 65% 11%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 206 91.5% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 206 91.5% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-sfl-blue/30;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+}
+
+/* Premium Gradient Utilities */
+.mesh-gradient {
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(206, 91%, 53%, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(46, 65%, 52%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(217, 65%, 11%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(206, 91%, 53%, 0.1) 0px, transparent 50%);
+}
+
+/* Glassmorphic panels */
+.glass-panel {
+  background: hsla(var(--glass-bg));
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid hsla(var(--glass-border));
+  box-shadow: var(--shadow-card);
+}
+
+.glass-panel-hover {
+  @apply transition-all duration-300;
+}
+
+.glass-panel-hover:hover {
+  background: hsla(220, 40%, 100%, 0.06);
+  border-color: hsla(var(--glass-border-bright));
+  box-shadow: var(--shadow-elevated), var(--shadow-blue);
+  transform: translateY(-4px);
+}
+
+/* Brand text utilities */
+.text-sfl-blue { color: hsl(var(--sfl-blue)); }
+.bg-sfl-blue { background-color: hsl(var(--sfl-blue)); }
+.text-sfl-navy { color: hsl(var(--sfl-navy)); }
+.bg-sfl-navy { background-color: hsl(var(--sfl-navy)); }
+.text-sfl-gold { color: hsl(var(--sfl-gold)); }
+.bg-sfl-gold { background-color: hsl(var(--sfl-gold)); }
+.text-industrial-black { color: hsl(var(--industrial-black)); }
+.bg-industrial-black { background-color: hsl(var(--industrial-black)); }
+.text-industrial-white { color: hsl(0 0% 100%); }
+.bg-athens-gray { background-color: hsl(var(--athens-gray)); }
+
+/* Counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--athens-gray));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--platinum-slate));
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
