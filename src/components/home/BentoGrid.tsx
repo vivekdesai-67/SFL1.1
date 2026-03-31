@@ -21,7 +21,7 @@ const cards = [
     icon: Wrench,
     span: "md:col-span-1",
     large: false,
-    image: "/products/high-tensile-fasteners.png",
+    image: "/products/high-tensile-fasteners-v2.png",
   },
   {
     title: "Custom CNC Machining",
@@ -30,7 +30,7 @@ const cards = [
     icon: Cog,
     span: "md:col-span-1",
     large: false,
-    image: "/products/cnc-machining.png",
+    image: "/products/cnc-machining-housing-v2.png",
   },
 ];
 

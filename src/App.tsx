@@ -12,11 +12,13 @@ import Quality from "./pages/Quality.tsx";
 import Contact from "./pages/Contact.tsx";
 import RFQ from "./pages/RFQ.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <LoadingScreen />
     <TooltipProvider>
       <Toaster />
       <Sonner />

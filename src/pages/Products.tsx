@@ -10,7 +10,7 @@ import { Magnetic } from "@/components/ui/Magnetic";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 type ProductItem = {
-  id: string; title: string; summary: string; category: string; material: string; coating: string; thread: string; application: string; badge: string | null; image?: string;
+  id: string; title: string; summary: string; category: string; material: string; coating: string; thread: string; application: string; badge: string | null; image?: string; noInvert?: boolean;
 };
 
 const allProducts: ProductItem[] = [
@@ -96,6 +96,8 @@ const allProducts: ProductItem[] = [
     thread: "Metric",
     application: "Industrial",
     badge: null,
+    image: "/products/high-tensile-fasteners-v2.png",
+    noInvert: true,
   },
   {
     id: "cnc-component-1",
@@ -107,6 +109,8 @@ const allProducts: ProductItem[] = [
     thread: "Metric",
     application: "Industrial",
     badge: null,
+    image: "/products/cnc-machining-housing-v2.png",
+    noInvert: true,
   },
 ];
 
@@ -251,7 +255,7 @@ const Products = () => {
                         <div className="h-72 bg-[#070B14] mb-8 rounded-xl flex items-center justify-center border border-white/5 transition-colors overflow-hidden relative group-hover:border-white/10">
                           {product.image ? (
                             <>
-                              <img src={product.image} alt={product.title} className="absolute inset-0 w-full h-full object-contain invert brightness-105 contrast-125 mix-blend-screen transition-all duration-700 group-hover:scale-110 [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)]" />
+                              <img src={product.image} alt={product.title} className={`absolute inset-0 w-full h-full transition-all duration-700 group-hover:scale-110 [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)] ${product.noInvert ? 'object-cover opacity-80 mix-blend-luminosity group-hover:opacity-100 group-hover:mix-blend-normal' : 'object-contain invert brightness-105 contrast-125 mix-blend-screen'}`} />
                               <div className="absolute inset-0 bg-gradient-to-t from-[#070B14] via-[#070B14]/20 to-transparent pointer-events-none" />
                             </>
                           ) : product.category === "Shafts" ? (
