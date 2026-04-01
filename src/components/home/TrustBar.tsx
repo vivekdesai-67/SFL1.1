@@ -1,5 +1,6 @@
 import { Handshake } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const clients = [
   { name: "Ashok Leyland", src: "/clients/ASHOK LEYLAND.png" },
@@ -32,13 +33,12 @@ export function TrustBar() {
       <div className="container mx-auto px-4 lg:px-8 mb-12">
         <ScrollReveal direction="up">
           <div className="flex flex-col items-center justify-center gap-4">
-            <div className="flex items-center gap-3 px-4 py-1.5 rounded-full border border-white/5 bg-white/2 backdrop-blur-md">
-              <Handshake className="w-4 h-4 text-sfl-blue" strokeWidth={1.5} />
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-sfl-blue">
-                Strategic Partnerships
-              </span>
-            </div>
-            <p className="text-xs md:text-sm font-medium tracking-wide text-slate-400 text-center max-w-2xl opacity-80">
+            <SectionLabel 
+              text="Strategic Partnerships" 
+              center 
+              className="mb-0" 
+            />
+            <p className="text-sm font-medium tracking-wide text-slate-400 text-center max-w-2xl">
               Powering the global supply chains of industry leaders with uncompromised precision.
             </p>
           </div>

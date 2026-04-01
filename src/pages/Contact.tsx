@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Globe, Clock, MessageSquare, Send } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const contactInfo = [
   {
@@ -45,15 +46,11 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="w-8 h-[2px] bg-sfl-gold" />
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-sfl-gold">Establish Connection</span>
-              <div className="w-8 h-[2px] bg-sfl-gold" />
-            </div>
+            <SectionLabel text="Establish Connection" center />
             <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
-              Connect with <br /><span className="text-sfl-blue">Global Excellence</span>
+              Connect with <br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Global Excellence</span>
             </h1>
-            <p className="text-lg text-slate-400 leading-relaxed font-medium opacity-80 max-w-2xl mx-auto">
+            <p className="text-base text-slate-400 leading-relaxed font-medium max-w-2xl mx-auto">
               Our engineering experts are ready to discuss your Tier-1 precision requirements. 
               Partner with a leader in automated manufacturing and zero-defect quality.
             </p>
@@ -101,22 +98,22 @@ const Contact = () => {
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Full Name</label>
+                      <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] ml-1">Full Name</label>
                       <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-sfl-blue/50 transition-colors" placeholder="John Doe" />
                     </div>
                     <div className="space-y-2">
-                       <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Email Address</label>
+                       <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] ml-1">Email Address</label>
                       <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-sfl-blue/50 transition-colors" placeholder="john@enterprise.com" />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Company</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] ml-1">Company</label>
                     <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-sfl-blue/50 transition-colors" placeholder="Automotive Corp." />
                   </div>
                   
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Message</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] ml-1">Message</label>
                     <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-sfl-blue/50 transition-colors resize-none" placeholder="Describe your industrial requirements..."></textarea>
                   </div>
 
@@ -135,7 +132,7 @@ const Contact = () => {
               <div className="space-y-12">
                 <div>
                   <h2 className="text-3xl font-black uppercase tracking-tight mb-6">Strategic Presence</h2>
-                  <p className="text-slate-400 font-medium leading-relaxed mb-8">
+                  <p className="text-sm text-slate-400 font-medium leading-relaxed mb-8">
                     Located in Hubballi’s manufacturing corridor, our facility acts as a precision 
                     engineering hub for global supply chains.
                   </p>

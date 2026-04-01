@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Mail, Phone, MapPin, Shield } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const steps = [
   { label: "Corporate Details", num: 1 },
@@ -54,12 +55,9 @@ const RFQ = () => {
           </motion.svg>
         </div>
         <div className="container relative z-10 mx-auto px-4 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-[2px] bg-sfl-blue" />
-            <span className="text-xs font-semibold tracking-[0.3em] uppercase text-sfl-blue">RFQ Portal</span>
-          </div>
+          <SectionLabel text="RFQ Portal" />
           <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
-            Request a Custom<br /><span className="text-sfl-blue">Manufacturing Quote</span>
+            Request a Custom<br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Manufacturing Quote</span>
           </h1>
           <p className="text-sm text-primary-foreground/60 max-w-2xl leading-relaxed">
             Provide your detailed project specifications below, and our senior engineering team 
@@ -95,26 +93,26 @@ const RFQ = () => {
             {step === 1 && (
               <div className="space-y-5">
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider block mb-2">Company Name *</label>
+                  <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] block mb-2">Company Name *</label>
                   <Input value={formData.company} onChange={(e) => update("company", e.target.value)} placeholder="Your organization" className="border-border" />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-xs font-bold uppercase tracking-wider block mb-2">Procurement Lead *</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] block mb-2">Procurement Lead *</label>
                     <Input value={formData.contact} onChange={(e) => update("contact", e.target.value)} placeholder="Full name" />
                   </div>
                   <div>
-                    <label className="text-xs font-bold uppercase tracking-wider block mb-2">Industry Sector *</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] block mb-2">Industry Sector *</label>
                     <Input value={formData.sector} onChange={(e) => update("sector", e.target.value)} placeholder="e.g., Automotive, Appliances" />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-xs font-bold uppercase tracking-wider block mb-2">Email *</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] block mb-2">Email *</label>
                     <Input type="email" value={formData.email} onChange={(e) => update("email", e.target.value)} placeholder="procurement@company.com" />
                   </div>
                   <div>
-                    <label className="text-xs font-bold uppercase tracking-wider block mb-2">Phone</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] block mb-2">Phone</label>
                     <Input value={formData.phone} onChange={(e) => update("phone", e.target.value)} placeholder="+91 XXXXX XXXXX" />
                   </div>
                 </div>
@@ -128,25 +126,25 @@ const RFQ = () => {
             {step === 2 && (
               <div className="space-y-5">
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider block mb-2">Target Component *</label>
+                  <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] block mb-2">Target Component *</label>
                   <Input value={formData.component} onChange={(e) => update("component", e.target.value)} placeholder="e.g., Splined Shaft, Custom Hex Nut" />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-xs font-bold uppercase tracking-wider block mb-2">Estimated Annual Volume</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] block mb-2">Estimated Annual Volume</label>
                     <Input value={formData.volume} onChange={(e) => update("volume", e.target.value)} placeholder="e.g., 50,000 units" />
                   </div>
                   <div>
-                    <label className="text-xs font-bold uppercase tracking-wider block mb-2">Material Grade</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] block mb-2">Material Grade</label>
                     <Input value={formData.material} onChange={(e) => update("material", e.target.value)} placeholder="e.g., EN8, EN24" />
                   </div>
                 </div>
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider block mb-2">Tolerance Constraints (mm)</label>
+                  <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] block mb-2">Tolerance Constraints (mm)</label>
                   <Input value={formData.tolerance} onChange={(e) => update("tolerance", e.target.value)} placeholder="e.g., ±0.01 mm" />
                 </div>
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider block mb-2">Additional Notes</label>
+                  <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] block mb-2">Additional Notes</label>
                   <Textarea value={formData.notes} onChange={(e) => update("notes", e.target.value)} placeholder="Special requirements, surface finish, plating preferences..." rows={4} />
                 </div>
                 <div className="flex gap-3 mt-4">

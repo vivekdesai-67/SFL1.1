@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Progress } from "@/components/ui/progress";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const instruments = [
   { sl: 1, name: "VMM Machine (Non-contact measuring)", range: "400×200×100", leastCount: "0.0001", make: "ESSON", category: "Vision" },
@@ -100,13 +101,10 @@ const Quality = () => {
           </motion.svg>
         </div>
         <div className="container relative z-10 mx-auto px-4 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-[2px] bg-sfl-blue" />
-            <span className="text-xs font-semibold tracking-[0.3em] uppercase text-sfl-blue">ISO 9001:2015 Certified</span>
-          </div>
+          <SectionLabel text="ISO 9001:2015 Certified" />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
             Uncompromising Quality<br />
-            <span className="text-sfl-blue">Assurance & Metrology</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Assurance & Metrology</span>
           </h1>
 
           {/* Engineering Objective Card */}
@@ -126,12 +124,7 @@ const Quality = () => {
       {/* Operation Discipline Pillars */}
       <section className="py-16 bg-card border-b border-border">
         <div className="container mx-auto px-4 lg:px-8">
-          <ScrollReveal direction="up" className="mb-3">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-[2px] bg-sfl-blue" />
-              <span className="text-xs font-semibold tracking-[0.3em] uppercase text-sfl-blue">Operation Discipline</span>
-            </div>
-          </ScrollReveal>
+          <SectionLabel text="Operation Discipline" />
           <ScrollReveal direction="up" className="mb-8">
             <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter">Quality Discipline Pillars</h2>
           </ScrollReveal>
@@ -141,11 +134,19 @@ const Quality = () => {
               {pillars.map((pillar) => (
                 <div
                   key={pillar.title}
-                  className="border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-sfl-blue/40 transition-colors group h-full"
+                  className="rounded-2xl glass-panel glass-panel-hover p-6 group h-full relative overflow-hidden"
                 >
-                  <pillar.icon className="w-8 h-8 text-sfl-blue mb-4 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
-                  <h3 className="text-sm font-bold uppercase tracking-wider mb-3">{pillar.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{pillar.desc}</p>
+                  {/* Shine sweep */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                  {/* Blue glow */}
+                  <div className="absolute top-0 right-0 w-28 h-28 bg-sfl-blue/10 blur-3xl rounded-full group-hover:bg-sfl-blue/20 transition-colors duration-500 pointer-events-none" />
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 group-hover:bg-sfl-blue/20 group-hover:border-sfl-blue/50 group-hover:scale-110 transition-all duration-500">
+                      <pillar.icon className="w-6 h-6 text-sfl-blue" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="text-sm font-bold uppercase tracking-wider mb-3">{pillar.title}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{pillar.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>

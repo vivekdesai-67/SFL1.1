@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, FileText, ChevronDown } from "lucide-react";
 import { useRef } from "react";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,20 +50,12 @@ export function HeroSection() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Premium Tagline */}
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-12 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
-            >
-              <div className="relative flex h-2.5 w-2.5">
-                <div className="animate-ping absolute inset-0 rounded-full bg-sfl-gold opacity-40"></div>
-                <div className="relative rounded-full h-2.5 w-2.5 bg-sfl-gold"></div>
-              </div>
-              <span className="text-[10px] font-black tracking-[0.3em] uppercase text-white/90">
-                Precision Manufacturing Since 2000
-              </span>
-            </motion.div>
+            {/* Standardized Section Label */}
+            <SectionLabel 
+              text="Precision Manufacturing Since 2000" 
+              center 
+              className="mb-12" 
+            />
 
             {/* Headline with high-end styling */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] text-white mb-8">
@@ -78,7 +71,7 @@ export function HeroSection() {
             </h1>
 
             {/* Subheadline - Refined spacing and typography */}
-            <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-16 leading-relaxed font-medium">
+            <p className="text-base text-slate-400 max-w-3xl mx-auto mb-16 leading-relaxed font-medium">
               India's premier manufacturer of high-precision machined components and industrial fasteners. 
               Certified quality, zero-defect production, and global delivery standards.
             </p>

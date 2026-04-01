@@ -3,11 +3,13 @@ import { Footer } from "@/components/layout/Footer";
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { ArrowLeft, FileDown, ShieldCheck, Gauge, Wrench } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Progress } from "@/components/ui/progress";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const productData: Record<string, {
   title: string; sku: string; category: string; shortDesc: string;
@@ -134,22 +136,22 @@ const ProductDetail = () => {
             {/* Product Header */}
             <ScrollReveal direction="up">
               <div className="mb-12">
-                <div className="flex items-center gap-2 flex-wrap mb-4">
-                  <span className="text-[10px] bg-white/5 border border-white/10 px-2 py-1 font-black uppercase tracking-widest text-[#A5D8FF]">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] border-l-2 border-sfl-blue pl-2">
                     {product.category}
                   </span>
                   {(product.badges || []).map(badge => (
-                    <Badge key={badge} className="bg-sfl-blue/10 text-sfl-blue border-sfl-blue/20 text-[9px] font-black uppercase tracking-widest">
+                    <span key={badge} className="bg-sfl-blue/10 text-sfl-blue px-3 py-1 text-[9px] font-black uppercase tracking-widest rounded-full border border-sfl-blue/20">
                       {badge}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
-                <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mt-2 mb-4 leading-none">
+                <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mt-2 mb-4 leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-slate-500">
                   {product.title}
                 </h1>
                 <p className="text-[10px] text-slate-500 font-mono tracking-widest">SKU: {product.sku}</p>
                 <div className="h-px w-full bg-gradient-to-r from-white/10 to-transparent my-8" />
-                <p className="text-base text-slate-400 leading-relaxed font-medium italic opacity-80">"{product.shortDesc}"</p>
+                <p className="text-sm text-slate-400 leading-relaxed font-medium italic">"{product.shortDesc}"</p>
               </div>
             </ScrollReveal>
 
@@ -177,7 +179,7 @@ const ProductDetail = () => {
               <div className="min-h-[400px]">
                 {activeTab === "Overview" && (
                   <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    <p className="text-lg text-slate-400 leading-relaxed font-medium opacity-90">{product.overview}</p>
+                    <p className="text-sm text-slate-400 leading-relaxed font-medium">{product.overview}</p>
                     
                     {/* Manufacturing Process Cards */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
@@ -219,9 +221,9 @@ const ProductDetail = () => {
 
                 {activeTab === "Quality & Metrology" && (
                   <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    <p className="text-lg text-slate-400 leading-relaxed font-medium opacity-90">{product.quality}</p>
+                    <p className="text-sm text-slate-400 leading-relaxed font-medium">{product.quality}</p>
                     <div className="glass-panel p-8 space-y-6">
-                      <h4 className="text-xs font-black uppercase tracking-widest mb-6 text-sfl-blue">Inspection Capability Excellence</h4>
+                      <SectionLabel text="Inspection Capability Excellence" className="mb-8" />
                       {[
                         { label: "VMM Resolution", value: "0.0001 mm", pct: 100 },
                         { label: "Surface Roughness", value: "0.0001 mm", pct: 100 },

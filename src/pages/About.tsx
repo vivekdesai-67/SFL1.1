@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Users, Target, Award, Shield, Factory, Zap, Timer, Briefcase } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const stats = [
   { label: "Active Clients", value: "200+", icon: Users },
@@ -58,14 +59,11 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-[2px] bg-sfl-gold" />
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-sfl-gold">Our Legacy</span>
-            </div>
+            <SectionLabel text="Our Legacy" />
             <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
-              Pioneering <span className="text-sfl-blue">Precision</span><br /> Since 1989.
+              Pioneering <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Precision</span><br /> Since 1989.
             </h1>
-            <p className="text-lg text-slate-400 leading-relaxed font-medium opacity-80 max-w-2xl">
+            <p className="text-base text-slate-400 leading-relaxed font-medium max-w-2xl">
               Shree Fasteners Private Limited (SFPL) has evolved from a specialist component manufacturer 
               into a global leader in Tier-1 precision engineering and automated manufacturing.
             </p>
@@ -79,12 +77,18 @@ const About = () => {
           <ScrollReveal direction="up" staggerChildren={0.1}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((stat) => (
-                <div key={stat.label} className="glass-panel p-8 text-center group hover:bg-white/5 transition-all duration-500">
-                  <div className="w-12 h-12 rounded-2xl bg-sfl-blue/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <stat.icon className="w-6 h-6 text-sfl-blue" />
+                <div key={stat.label} className="rounded-2xl glass-panel glass-panel-hover p-8 text-center group relative overflow-hidden">
+                  {/* Shine sweep */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                  {/* Blue glow */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-sfl-blue/10 blur-3xl rounded-full group-hover:bg-sfl-blue/20 transition-colors duration-500 pointer-events-none" />
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-sfl-blue/20 group-hover:border-sfl-blue/50 group-hover:scale-110 transition-all duration-500">
+                      <stat.icon className="w-6 h-6 text-sfl-blue" />
+                    </div>
+                    <div className="text-4xl font-black mb-1">{stat.value}</div>
+                    <div className="text-[9px] font-black uppercase tracking-widest text-slate-500">{stat.label}</div>
                   </div>
-                  <div className="text-4xl font-black mb-1">{stat.value}</div>
-                  <div className="text-[9px] font-black uppercase tracking-widest text-slate-500">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -102,7 +106,7 @@ const About = () => {
                 <h2 className="text-4xl font-black uppercase tracking-tighter mb-8 leading-tight">
                   Uncompromising <br /><span className="text-sfl-blue">Technical Expertise</span>
                 </h2>
-                <div className="space-y-6 text-slate-400 font-medium leading-relaxed">
+                <div className="space-y-6 text-sm text-slate-400 font-medium leading-relaxed">
                   <p>
                     Over three decades, we have strictly adhered to zero-defect manufacturing protocols. Our 
                     infrastructure in Hubballi acts as the engineering heart for global automotive and 
@@ -119,11 +123,15 @@ const About = () => {
             <ScrollReveal direction="right" staggerChildren={0.1}>
               <div className="grid grid-cols-1 gap-4">
                 {values.map((v) => (
-                  <div key={v.title} className="glass-panel p-6 flex gap-6 items-start hover:border-sfl-blue/40 transition-colors group">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${v.color} flex-shrink-0 flex items-center justify-center border border-white/5 group-hover:scale-110 transition-transform`}>
-                      <v.icon className="w-6 h-6 text-white" />
+                  <div key={v.title} className="rounded-2xl glass-panel glass-panel-hover p-6 flex gap-6 items-start group relative overflow-hidden">
+                    {/* Shine sweep */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                    {/* Blue glow */}
+                    <div className="absolute top-0 right-0 w-28 h-28 bg-sfl-blue/10 blur-3xl rounded-full group-hover:bg-sfl-blue/20 transition-colors duration-500 pointer-events-none" />
+                    <div className={`relative z-10 w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex-shrink-0 flex items-center justify-center group-hover:bg-sfl-blue/20 group-hover:border-sfl-blue/50 group-hover:scale-110 transition-all duration-500`}>
+                      <v.icon className="w-6 h-6 text-sfl-blue" />
                     </div>
-                    <div>
+                    <div className="relative z-10">
                       <h3 className="font-black uppercase tracking-tight text-sm mb-2">{v.title}</h3>
                       <p className="text-xs text-slate-500 leading-relaxed font-medium">{v.desc}</p>
                     </div>
@@ -143,7 +151,7 @@ const About = () => {
           <ScrollReveal direction="up">
             <div className="text-center mb-20">
               <h2 className="text-4xl font-black uppercase tracking-tighter mb-4">Milestones & <span className="text-sfl-blue">Evolution</span></h2>
-              <p className="text-slate-500 font-medium">A trajectory of growth and industrial transformation.</p>
+              <p className="text-sm text-slate-500 font-medium">A trajectory of growth and industrial transformation.</p>
             </div>
           </ScrollReveal>
 
@@ -156,11 +164,15 @@ const About = () => {
                 <ScrollReveal direction={i % 2 === 0 ? "left" : "right"} delay={i * 0.1} key={item.year}>
                   <div className={`relative flex items-center justify-center md:justify-between w-full ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
                     <div className="w-full md:w-[45%]">
-                      <div className={`glass-panel p-8 group hover:bg-white/5 transition-all duration-500 ${i % 2 === 0 ? "text-right" : "text-left"}`}>
-                        <div className={`text-2xl font-black text-sfl-blue mb-2 ${i % 2 === 0 ? "justify-end" : "justify-start"} flex items-center gap-2`}>
-                           {item.year}
+                      <div className={`rounded-2xl glass-panel glass-panel-hover p-8 group relative overflow-hidden ${i % 2 === 0 ? "text-right" : "text-left"}`}>
+                        {/* Shine sweep */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                        <div className="relative z-10">
+                          <div className={`text-2xl font-black text-sfl-blue mb-2 ${i % 2 === 0 ? "justify-end" : "justify-start"} flex items-center gap-2`}>
+                             {item.year}
+                          </div>
+                          <p className="text-sm font-bold text-white/80 leading-relaxed">{item.event}</p>
                         </div>
-                        <p className="text-sm font-bold text-white/80 leading-relaxed">{item.event}</p>
                       </div>
                     </div>
                     
@@ -185,7 +197,10 @@ const About = () => {
               <div className="relative z-10">
                 <Award className="w-16 h-16 text-sfl-blue mx-auto mb-8 animate-pulse" />
                 <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-8 leading-none">
-                  Partner with a <br />Global Engineering Leader
+                  Partner with a <br />
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue via-white to-slate-500">
+                    Global Engineering Leader
+                  </span>
                 </h2>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Magnetic>

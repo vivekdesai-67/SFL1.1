@@ -8,6 +8,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { Badge } from "@/components/ui/badge";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 type ProductItem = {
   id: string; title: string; summary: string; category: string; material: string; coating: string; thread: string; application: string; badge: string | null; image?: string; noInvert?: boolean;
@@ -162,14 +163,11 @@ const Products = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
-              <div className="w-8 h-[2px] bg-sfl-gold" />
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-sfl-gold">Engineering Catalog</span>
-            </div>
+            <SectionLabel text="Engineering Catalog" className="lg:justify-start" />
             <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
               Component<br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Solutions</span>
             </h1>
-            <p className="text-lg text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-medium opacity-80">
+            <p className="text-base text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-medium">
               A comprehensive portfolio of precision-engineered shafts, high-tensile 
               industrial fasteners, and custom CNC components built to global standards.
             </p>
@@ -226,7 +224,7 @@ const Products = () => {
           {/* Product Grid */}
           <div className="flex-1">
             <div className="flex items-center justify-between mb-10 border-b border-white/5 pb-6">
-              <p className="text-[10px] font-black tracking-[0.3em] uppercase text-slate-500">Showing {filtered.length} Results</p>
+              <p className="text-[10px] font-black tracking-[0.3em] uppercase text-slate-500">Showing {filtered.length} Engineering Solutions</p>
               {activeFilters.length > 0 && (
                 <button
                   onClick={() => setFilters({})}

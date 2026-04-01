@@ -7,6 +7,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { Progress } from "@/components/ui/progress";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const categories = [
   "All", "CNC Turning", "Milling", "Grinding", "Automation", "Thread Forming",
@@ -128,14 +129,11 @@ const Infrastructure = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
-              <div className="w-8 h-[2px] bg-sfl-gold" />
-              <span className="text-[10px] font-black tracking-[0.4em] uppercase text-sfl-gold">Industrial Scale</span>
-            </div>
+            <SectionLabel text="Industrial Scale" className="lg:justify-start" />
             <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
               Manufacturing<br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Infrastructure</span>
             </h1>
-            <p className="text-lg text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-medium opacity-80">
+            <p className="text-base text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-medium">
               Our Hubballi facility houses 51 advanced production centers across 25,000 m² — 
               delivering precision engineering at global scale with 120+ specialist engineers.
             </p>
@@ -150,13 +148,21 @@ const Infrastructure = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {facilityStats.map((stat) => (
                 <div key={stat.label} className="rounded-2xl glass-panel glass-panel-hover p-8 relative overflow-hidden group">
-                  <div className="flex items-center justify-between mb-4">
-                    <stat.icon className="w-8 h-8 text-sfl-blue group-hover:scale-110 transition-transform duration-500" strokeWidth={1.5} />
-                    <Info size={14} className="text-slate-500 opacity-50" />
+                  {/* Shine sweep */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                  {/* Blue glow */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-sfl-blue/10 blur-3xl rounded-full group-hover:bg-sfl-blue/20 transition-colors duration-500 pointer-events-none" />
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-sfl-blue/20 group-hover:border-sfl-blue/50 group-hover:scale-110 transition-all duration-500">
+                        <stat.icon className="w-6 h-6 text-sfl-blue" strokeWidth={1.5} />
+                      </div>
+                      <Info size={14} className="text-slate-500 opacity-50" />
+                    </div>
+                    <div className="text-3xl font-black text-white mb-2">{stat.value}</div>
+                    <div className="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-6">{stat.label}</div>
+                    <Progress value={stat.pct} className="h-1 bg-white/5" />
                   </div>
-                  <div className="text-3xl font-black text-white mb-2">{stat.value}</div>
-                  <div className="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-6">{stat.label}</div>
-                  <Progress value={stat.pct} className="h-1 bg-white/5" />
                 </div>
               ))}
             </div>

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Ruler, IndianRupee, Users, Settings } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const stats = [
   { value: 25000, suffix: " m²", label: "Total Landed Facility Area", icon: Ruler },
@@ -45,14 +46,10 @@ export function StatsSection() {
   return (
     <section className="bg-primary text-primary-foreground py-20 lg:py-28">
       <div className="container mx-auto px-4 lg:px-8">
-        <ScrollReveal direction="up" className="mb-3">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-[2px] bg-sfl-navy" />
-            <span className="text-xs font-semibold tracking-[0.3em] uppercase text-sfl-navy">
-              Scale
-            </span>
-          </div>
-        </ScrollReveal>
+          <SectionLabel 
+            text="Scale" 
+            className="mb-4" 
+          />
         
         <ScrollReveal direction="up" className="mb-20">
           <h2 className="text-xl md:text-2xl lg:text-3xl uppercase tracking-widest text-white flex flex-wrap items-baseline gap-8">

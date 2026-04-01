@@ -7,6 +7,7 @@ import { StatsSection } from "@/components/home/StatsSection";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Link } from "react-router-dom";
 import { ShieldCheck, Award, Cpu, ArrowUpRight } from "lucide-react";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const Index = () => {
   return (
@@ -44,15 +45,14 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <ScrollReveal direction="up" delay={0.1}>
             <div className="flex flex-col items-center mb-20 text-center">
-              <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-8">
-                <div className="w-2 h-2 rounded-full bg-sfl-gold" />
-                <span className="text-[10px] font-black tracking-[0.3em] uppercase text-white/80">
-                  Global Delivery Standards
-                </span>
-              </div>
+              <SectionLabel 
+                text="Global Delivery Standards" 
+                center 
+                className="mb-8" 
+              />
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
                 Engineered for <br/>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-400 to-white">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue via-white to-slate-500">
                   Extreme Environments
                 </span>
               </h2>
@@ -86,7 +86,10 @@ const Index = () => {
                     to={card.link}
                     className="group block h-full rounded-2xl glass-panel glass-panel-hover p-10 relative overflow-hidden flex flex-col"
                   >
-                    <div className="absolute top-0 right-0 w-40 h-40 bg-sfl-blue/10 blur-3xl rounded-full group-hover:bg-sfl-blue/20 transition-colors duration-500" />
+                    {/* Blue glow */}
+                    <div className="absolute top-0 right-0 w-40 h-40 bg-sfl-blue/10 blur-3xl rounded-full group-hover:bg-sfl-blue/20 transition-colors duration-500 pointer-events-none" />
+                    {/* Shine sweep */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out pointer-events-none" />
                     
                     <div className="mb-8 p-4 bg-white/5 rounded-xl border border-white/10 w-fit group-hover:bg-sfl-blue/20 group-hover:border-sfl-blue transition-all duration-500">
                       <card.icon 
@@ -97,7 +100,7 @@ const Index = () => {
                     <h3 className="text-xl font-black uppercase tracking-widest mb-4 text-white">
                       {card.title}
                     </h3>
-                    <p className="text-sm text-slate-400 leading-relaxed mb-10 font-medium opacity-80 group-hover:opacity-100 transition-opacity">
+                     <p className="text-sm text-slate-400 leading-relaxed mb-10 font-medium group-hover:opacity-100 transition-opacity">
                       {card.desc}
                     </p>
                     

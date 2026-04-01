@@ -3,6 +3,7 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { ArrowUpRight, CircleDot, Wrench, Cog } from "lucide-react";
 import { MouseEvent } from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const cards = [
   {
@@ -108,7 +109,7 @@ function BentoCard({ card }: { card: typeof cards[0] }) {
           >
             {card.title}
           </h3>
-          <p className={`text-slate-400 leading-relaxed font-medium ${card.large ? "text-base lg:text-lg max-w-xl" : "text-sm lg:text-base opacity-70 group-hover:opacity-100 transition-opacity"}`}>
+          <p className={`text-slate-400 leading-relaxed font-medium ${card.large ? "text-sm lg:text-base max-w-xl" : "text-sm opacity-70 group-hover:opacity-100 transition-opacity"}`}>
             {card.description}
           </p>
         </div>
@@ -126,14 +127,11 @@ export function BentoGrid() {
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <ScrollReveal direction="up" className="flex flex-col items-center text-center mb-20 lg:mb-28">
-          <div 
-            className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-sfl-blue/20 bg-sfl-blue/5 backdrop-blur-xl mb-8"
-          >
-            <span className="w-2 h-2 rounded-full bg-sfl-blue animate-pulse" />
-            <span className="text-[10px] font-black tracking-[0.3em] uppercase text-sfl-blue">
-              Excellence at Scale
-            </span>
-          </div>
+          <SectionLabel 
+            text="Excellence at Scale" 
+            center 
+            className="mb-8" 
+          />
           
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-white leading-none">
             Uncompromising<br />
