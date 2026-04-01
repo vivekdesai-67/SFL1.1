@@ -47,10 +47,10 @@ const Contact = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <SectionLabel text="Establish Connection" center />
-            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
               Connect with <br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Global Excellence</span>
             </h1>
-            <p className="text-base text-slate-400 leading-relaxed font-medium max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-medium max-w-2xl mx-auto">
               Our engineering experts are ready to discuss your Tier-1 precision requirements. 
               Partner with a leader in automated manufacturing and zero-defect quality.
             </p>
@@ -93,7 +93,7 @@ const Contact = () => {
                   <MessageSquare size={120} className="text-sfl-blue" />
                 </div>
                 
-                <h2 className="text-3xl font-black uppercase tracking-tight mb-8">Send Inquiries</h2>
+                <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-6 sm:mb-8">Send Inquiries</h2>
                 
                 <form className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -147,7 +147,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                   <div>
                     <h4 className="text-[10px] font-black uppercase tracking-widest text-sfl-blue mb-3">Facility Hours</h4>
                     <ul className="text-xs text-slate-400 space-y-2 font-medium">

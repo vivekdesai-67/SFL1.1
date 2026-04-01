@@ -164,10 +164,10 @@ const Products = () => {
             transition={{ duration: 0.8 }}
           >
             <SectionLabel text="Engineering Catalog" className="lg:justify-start" />
-            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
               Component<br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Solutions</span>
             </h1>
-            <p className="text-base text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-medium">
+            <p className="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-medium">
               A comprehensive portfolio of precision-engineered shafts, high-tensile 
               industrial fasteners, and custom CNC components built to global standards.
             </p>
@@ -250,7 +250,7 @@ const Products = () => {
                           </div>
                         )}
                         
-                        <div className="h-72 bg-[#070B14] mb-8 rounded-xl flex items-center justify-center border border-white/5 transition-colors overflow-hidden relative group-hover:border-white/10">
+                        <div className="h-48 sm:h-72 bg-[#070B14] mb-6 sm:mb-8 rounded-xl flex items-center justify-center border border-white/5 transition-colors overflow-hidden relative group-hover:border-white/10">
                           {product.image ? (
                             <>
                               <img src={product.image} alt={product.title} className={`absolute inset-0 w-full h-full transition-all duration-700 group-hover:scale-110 [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)] ${product.noInvert ? 'object-cover opacity-80 mix-blend-luminosity group-hover:opacity-100 group-hover:mix-blend-normal' : 'object-contain invert brightness-105 contrast-125 mix-blend-screen'}`} />

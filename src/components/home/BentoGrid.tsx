@@ -133,7 +133,7 @@ export function BentoGrid() {
             className="mb-8" 
           />
           
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-white leading-none">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-white leading-none">
             Uncompromising<br />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue via-white to-slate-500">
               Technical Precision
@@ -142,7 +142,7 @@ export function BentoGrid() {
         </ScrollReveal>
 
         <ScrollReveal direction="up" staggerChildren={0.1}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[320px]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 auto-rows-[280px] sm:auto-rows-[320px]">
             {cards.map((card) => (
               <div
                 key={card.title}

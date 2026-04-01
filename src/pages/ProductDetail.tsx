@@ -136,7 +136,7 @@ const ProductDetail = () => {
             {/* Product Header */}
             <ScrollReveal direction="up">
               <div className="mb-12">
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-6">
                   <span className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] border-l-2 border-sfl-blue pl-2">
                     {product.category}
                   </span>
@@ -146,7 +146,7 @@ const ProductDetail = () => {
                     </span>
                   ))}
                 </div>
-                <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mt-2 mb-4 leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-slate-500">
+                <h1 className="text-2xl sm:text-3xl md:text-5xl font-black uppercase tracking-tighter mt-2 mb-4 leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-slate-500">
                   {product.title}
                 </h1>
                 <p className="text-[10px] text-slate-500 font-mono tracking-widest">SKU: {product.sku}</p>
@@ -162,7 +162,7 @@ const ProductDetail = () => {
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`px-6 py-4 text-[10px] font-black uppercase tracking-[0.2em] whitespace-nowrap border-b-2 transition-all duration-300 ${
+                    className={`px-3 sm:px-6 py-3 sm:py-4 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] whitespace-nowrap border-b-2 transition-all duration-300 ${
                       activeTab === tab
                         ? "border-sfl-blue text-sfl-blue bg-sfl-blue/5"
                         : "border-transparent text-white/40 hover:text-white hover:bg-white/5"
@@ -259,7 +259,7 @@ const ProductDetail = () => {
                 {activeTab === "Downloads" && (
                   <div className="grid grid-cols-1 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
                     {product.downloads.map((d) => (
-                      <div key={d} className="glass-panel p-6 flex items-center justify-between hover:bg-white/5 transition-all duration-300 group">
+                      <div key={d} className="glass-panel p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:bg-white/5 transition-all duration-300 group">
                         <div className="flex items-center gap-4">
                           <div className="p-3 bg-white/5 rounded-lg text-sfl-blue group-hover:scale-110 transition-transform">
                             <FileDown size={20} />

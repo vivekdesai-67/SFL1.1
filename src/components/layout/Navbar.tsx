@@ -84,12 +84,12 @@ export function Navbar() {
             <div className="relative logo-hex">
               <div className="absolute inset-0 bg-sfl-blue/20 blur-xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />
               <svg
-                width="80"
-                height="80"
+                width="56"
+                height="56"
                 viewBox="0 0 1024 1024"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="relative z-10"
+                className="relative z-10 w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20"
                 role="img"
                 aria-label="Sangam Fasteners Logo"
               >
@@ -114,10 +114,10 @@ export function Navbar() {
               </svg>
             </div>
             <div className="hidden sm:flex flex-col justify-center gap-[2px]">
-              <span className="font-black text-lg tracking-[0.2em] uppercase text-white group-hover:text-sfl-blue transition-colors duration-300 leading-none">
+              <span className="font-black text-sm md:text-lg tracking-[0.15em] md:tracking-[0.2em] uppercase text-white group-hover:text-sfl-blue transition-colors duration-300 leading-none">
                 Sangam Fasteners
               </span>
-              <span className="font-bold text-[13px] tracking-[0.3em] uppercase text-white/60 group-hover:text-sfl-blue/80 transition-colors duration-300 leading-none">
+              <span className="font-bold text-[10px] md:text-[13px] tracking-[0.2em] md:tracking-[0.3em] uppercase text-white/60 group-hover:text-sfl-blue/80 transition-colors duration-300 leading-none">
                 Private Limited
               </span>
             </div>
@@ -134,13 +134,13 @@ export function Navbar() {
                   onClick={() => setMenuOpen(!menuOpen)}
                   aria-label={menuOpen ? "Close menu" : "Open menu"}
                   aria-expanded={menuOpen}
-                  className={`flex items-center gap-3 px-6 py-3 rounded-full border-2 transition-all duration-300 group ${
+                  className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full border-2 transition-all duration-300 group ${
                     menuOpen
                       ? "bg-white/15 border-white/30 text-white shadow-[0_0_20px_rgba(25,148,245,0.2)]"
                       : "bg-sfl-blue/10 border-sfl-blue/40 text-white hover:bg-sfl-blue/20 hover:border-sfl-blue/70 hover:shadow-[0_0_24px_rgba(25,148,245,0.3)]"
                   }`}
                 >
-                  <div className="relative h-[14px] w-14 overflow-hidden flex items-center justify-center">
+                  <div className="relative h-[12px] sm:h-[14px] w-10 sm:w-14 overflow-hidden flex items-center justify-center">
                     <AnimatePresence mode="wait">
                       <motion.span
                         key={menuOpen ? "close" : "menu"}
@@ -148,7 +148,7 @@ export function Navbar() {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -20, opacity: 0 }}
                         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute text-xs font-black tracking-[0.25em] uppercase"
+                        className="absolute text-[9px] sm:text-xs font-black tracking-[0.2em] sm:tracking-[0.25em] uppercase"
                       >
                         {menuOpen ? "Close" : "Menu"}
                       </motion.span>
@@ -178,7 +178,7 @@ export function Navbar() {
               Menu
             </div>
 
-            <div className="container mx-auto min-h-full px-8 lg:px-24 flex items-center relative z-10 w-full pl-20 lg:pl-32">
+            <div className="container mx-auto min-h-full px-4 sm:px-8 lg:px-24 flex items-center relative z-10 w-full pl-8 sm:pl-20 lg:pl-32">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 w-full">
                 
                 {/* ── Left Column: Links ── */}
@@ -197,7 +197,7 @@ export function Navbar() {
                       <Link
                         to={link.path}
                         onClick={() => setMenuOpen(false)}
-                        className="inline-block text-4xl lg:text-5xl font-black text-white/80 hover:text-sfl-blue transition-all duration-300 hover:translate-x-4 tracking-tighter"
+                        className="inline-block text-2xl sm:text-4xl lg:text-5xl font-black text-white/80 hover:text-sfl-blue transition-all duration-300 hover:translate-x-4 tracking-tighter"
                       >
                         {link.label}
                       </Link>
@@ -227,13 +227,13 @@ export function Navbar() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
-                  className="flex flex-col justify-center gap-12 lg:border-l lg:border-white/10 lg:pl-16 relative"
+                  className="hidden lg:flex flex-col justify-center gap-12 lg:border-l lg:border-white/10 lg:pl-16 relative"
                 >
                   
                   {/* Address */}
                   <div>
-                    <h3 className="text-xl font-medium text-sfl-blue mb-4">Address</h3>
-                    <div className="text-white/70 space-y-2 text-[15px] leading-relaxed relative">
+                    <h3 className="text-lg lg:text-xl font-medium text-sfl-blue mb-4">Address</h3>
+                    <div className="text-white/70 space-y-2 text-sm lg:text-[15px] leading-relaxed relative">
                       <p className="font-semibold text-white">Sangam Fasteners Private Limited</p>
                       <p>Global Industrial Hub,</p>
                       <p>Ahmedabad - 380015</p>
@@ -243,8 +243,8 @@ export function Navbar() {
 
                   {/* Contact */}
                   <div>
-                    <h3 className="text-xl font-medium text-sfl-blue mb-4">Contact</h3>
-                    <div className="text-white/70 space-y-3 text-[15px]">
+                    <h3 className="text-lg lg:text-xl font-medium text-sfl-blue mb-4">Contact</h3>
+                    <div className="text-white/70 space-y-3 text-sm lg:text-[15px]">
                       <div className="flex sm:items-center flex-col sm:flex-row gap-1 sm:gap-4">
                         <span className="w-36 text-white/50 shrink-0">Customer Care</span>
                         <span className="font-mono">: +91 98765 43210</span>
@@ -262,7 +262,7 @@ export function Navbar() {
 
                   {/* Socials */}
                   <div>
-                    <h3 className="text-xl font-medium text-sfl-blue mb-4">Follow us</h3>
+                    <h3 className="text-lg lg:text-xl font-medium text-sfl-blue mb-4">Follow us</h3>
                     <div className="flex items-center gap-6 text-sfl-blue">
                       <a href="#" className="hover:text-white transition-colors duration-300 hover:scale-110 transform">
                         <Linkedin size={22} />

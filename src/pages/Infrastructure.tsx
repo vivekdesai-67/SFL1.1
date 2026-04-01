@@ -130,10 +130,10 @@ const Infrastructure = () => {
             transition={{ duration: 0.8 }}
           >
             <SectionLabel text="Industrial Scale" className="lg:justify-start" />
-            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
               Manufacturing<br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Infrastructure</span>
             </h1>
-            <p className="text-base text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-medium">
+            <p className="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-medium">
               Our Hubballi facility houses 51 advanced production centers across 25,000 m² — 
               delivering precision engineering at global scale with 120+ specialist engineers.
             </p>
@@ -174,7 +174,7 @@ const Infrastructure = () => {
       <section className="py-24 bg-[#070B14]">
         <div className="container mx-auto px-4 lg:px-8">
           <ScrollReveal direction="up" className="mb-12">
-            <h2 className="text-3xl font-black uppercase tracking-tighter flex items-center gap-4">
+            <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tighter flex items-center gap-4">
               <div className="w-10 h-10 rounded-xl bg-sfl-blue/20 flex items-center justify-center">
                 <Gauge className="w-5 h-5 text-sfl-blue" />
               </div> 
@@ -233,13 +233,13 @@ const Infrastructure = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
             <ScrollReveal direction="left">
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter">
                 Full Machine <br/> <span className="text-sfl-blue">Inventory</span>
               </h2>
             </ScrollReveal>
             
             <ScrollReveal direction="right">
-              <div className="flex flex-wrap gap-2 justify-end">
+              <div className="flex flex-wrap gap-2 justify-start lg:justify-end">
                 {["All", "CNC Turning", "Milling", "Grinding", "Automation"].map((cat) => (
                   <button
                     key={cat}
@@ -260,7 +260,7 @@ const Infrastructure = () => {
           <ScrollReveal direction="up" delay={0.2}>
             <div className="rounded-3xl border border-white/5 bg-white/2 backdrop-blur-3xl overflow-hidden shadow-2xl">
               <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
+                <table className="w-full text-left border-collapse min-w-[600px]">
                   <thead>
                     <tr className="border-b border-white/5 bg-white/3">
                       <th className="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">ID</th>

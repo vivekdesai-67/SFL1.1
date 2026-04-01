@@ -102,13 +102,13 @@ const Quality = () => {
         </div>
         <div className="container relative z-10 mx-auto px-4 lg:px-8">
           <SectionLabel text="ISO 9001:2015 Certified" />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
             Uncompromising Quality<br />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Assurance & Metrology</span>
           </h1>
 
           {/* Engineering Objective Card */}
-          <div className="mt-8 border border-primary-foreground/10 p-6 max-w-2xl">
+          <div className="mt-6 sm:mt-8 border border-primary-foreground/10 p-4 sm:p-6 max-w-2xl">
             <div className="flex items-center gap-2 mb-3">
               <Award size={16} className="text-sfl-blue" />
               <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-sfl-blue">Engineering & Quality Objective</h3>
@@ -126,7 +126,7 @@ const Quality = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <SectionLabel text="Operation Discipline" />
           <ScrollReveal direction="up" className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter">Quality Discipline Pillars</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter">Quality Discipline Pillars</h2>
           </ScrollReveal>
           
           <ScrollReveal direction="up" staggerChildren={0.1}>
@@ -232,7 +232,7 @@ const Quality = () => {
           </div>
 
           <div className="border border-border bg-card overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full text-sm min-w-[600px]">
               <thead>
                 <tr className="border-b border-border bg-muted/30">
                   <th className="text-left px-4 py-3 text-xs font-bold uppercase tracking-wider w-12">Sl</th>

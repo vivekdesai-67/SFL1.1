@@ -56,7 +56,7 @@ const RFQ = () => {
         </div>
         <div className="container relative z-10 mx-auto px-4 lg:px-8">
           <SectionLabel text="RFQ Portal" />
-          <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
             Request a Custom<br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Manufacturing Quote</span>
           </h1>
           <p className="text-sm text-primary-foreground/60 max-w-2xl leading-relaxed">
@@ -157,7 +157,7 @@ const RFQ = () => {
             {/* Step 3 */}
             {step === 3 && (
               <div className="space-y-6">
-                <div className="border-2 border-dashed border-border p-10 text-center hover:border-sfl-navy transition-colors cursor-pointer">
+                <div className="border-2 border-dashed border-border p-6 sm:p-10 text-center hover:border-sfl-navy transition-colors cursor-pointer">
                   <div className="text-muted-foreground mb-3">
                     <span className="text-3xl">📎</span>
                   </div>

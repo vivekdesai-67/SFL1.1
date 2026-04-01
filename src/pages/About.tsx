@@ -60,10 +60,10 @@ const About = () => {
             className="max-w-4xl"
           >
             <SectionLabel text="Our Legacy" />
-            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
               Pioneering <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Precision</span><br /> Since 1989.
             </h1>
-            <p className="text-base text-slate-400 leading-relaxed font-medium max-w-2xl">
+            <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-medium max-w-2xl">
               Shree Fasteners Private Limited (SFPL) has evolved from a specialist component manufacturer 
               into a global leader in Tier-1 precision engineering and automated manufacturing.
             </p>
@@ -103,7 +103,7 @@ const About = () => {
             <ScrollReveal direction="left">
               <div className="relative">
                 <div className="absolute -top-10 -left-10 w-40 h-40 bg-sfl-blue/10 blur-[100px]" />
-                <h2 className="text-4xl font-black uppercase tracking-tighter mb-8 leading-tight">
+                <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tighter mb-6 sm:mb-8 leading-tight">
                   Uncompromising <br /><span className="text-sfl-blue">Technical Expertise</span>
                 </h2>
                 <div className="space-y-6 text-sm text-slate-400 font-medium leading-relaxed">
@@ -204,12 +204,12 @@ const About = () => {
                 </h2>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Magnetic>
-                    <a href="/products" className="px-10 py-5 bg-sfl-blue rounded-xl text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-600 transition-all shadow-[0_0_40px_rgba(25,148,245,0.3)]">
+                <a href="/products" className="px-8 sm:px-10 py-4 sm:py-5 bg-sfl-blue rounded-xl text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-600 transition-all shadow-[0_0_40px_rgba(25,148,245,0.3)] w-full sm:w-auto text-center">
                       Explore Capabilities
                     </a>
                   </Magnetic>
                   <Magnetic>
-                    <a href="/contact" className="px-10 py-5 rounded-xl border border-white/10 text-xs font-black uppercase tracking-[0.2em] hover:bg-white/5 transition-all">
+                <a href="/contact" className="px-8 sm:px-10 py-4 sm:py-5 rounded-xl border border-white/10 text-xs font-black uppercase tracking-[0.2em] hover:bg-white/5 transition-all w-full sm:w-auto text-center">
                       Contact Expertise
                     </a>
                   </Magnetic>

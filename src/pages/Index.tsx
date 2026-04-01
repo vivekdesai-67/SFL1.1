@@ -50,7 +50,7 @@ const Index = () => {
                 center 
                 className="mb-8" 
               />
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
                 Engineered for <br/>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue via-white to-slate-500">
                   Extreme Environments
@@ -84,7 +84,7 @@ const Index = () => {
                 <div key={card.title} className="h-full">
                   <Link
                     to={card.link}
-                    className="group block h-full rounded-2xl glass-panel glass-panel-hover p-10 relative overflow-hidden flex flex-col"
+                    className="group block h-full rounded-2xl glass-panel glass-panel-hover p-6 sm:p-10 relative overflow-hidden flex flex-col"
                   >
                     {/* Blue glow */}
                     <div className="absolute top-0 right-0 w-40 h-40 bg-sfl-blue/10 blur-3xl rounded-full group-hover:bg-sfl-blue/20 transition-colors duration-500 pointer-events-none" />

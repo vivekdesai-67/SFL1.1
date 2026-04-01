@@ -58,7 +58,7 @@ export function HeroSection() {
             />
 
             {/* Headline with high-end styling */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] text-white mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] text-white mb-6 sm:mb-8">
               <span className="block mb-2 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
                 Engineered for
               </span>
@@ -71,17 +71,17 @@ export function HeroSection() {
             </h1>
 
             {/* Subheadline - Refined spacing and typography */}
-            <p className="text-base text-slate-400 max-w-3xl mx-auto mb-16 leading-relaxed font-medium">
+            <p className="text-sm sm:text-base text-slate-400 max-w-3xl mx-auto mb-10 sm:mb-16 leading-relaxed font-medium px-2">
               India's premier manufacturer of high-precision machined components and industrial fasteners. 
               Certified quality, zero-defect production, and global delivery standards.
             </p>
 
             {/* CTAs with Magnetic Effect */}
-            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 justify-center items-center px-4">
               <Magnetic>
                 <Link 
                   to="/products"
-                  className="px-12 py-5 bg-white text-black font-black uppercase tracking-widest text-sm rounded-full hover:bg-sfl-blue hover:text-white transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.2)]"
+                  className="px-8 sm:px-12 py-4 sm:py-5 bg-white text-black font-black uppercase tracking-widest text-xs sm:text-sm rounded-full hover:bg-sfl-blue hover:text-white transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.2)] w-full sm:w-auto text-center"
                 >
                   Explore Catalog
                 </Link>
