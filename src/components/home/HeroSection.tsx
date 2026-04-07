@@ -5,6 +5,8 @@ import { ArrowRight, FileText, ChevronDown } from "lucide-react";
 import { useRef } from "react";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { TypeWriter } from "@/components/ui/TypeWriter";
+import { Award } from "lucide-react";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -25,9 +27,28 @@ export function HeroSection() {
       style={{ position: "relative" }}
       className="relative min-h-screen flex items-center justify-center bg-[#070B14] overflow-hidden"
     >
-      {/* Premium Mesh Background */}
+      {/* Premium High-Fidelity Video Background Integration */}
+      <div className="absolute inset-0 z-0 opacity-70 overflow-hidden pointer-events-none">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="w-full h-full object-cover scale-105 transition-opacity duration-1000"
+        >
+          <source src="/videos/hero-cnc.mp4" type="video/mp4" />
+        </video>
+        {/* Thematic Gradients for Premium Integration - Matched with Quality Page */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070B14] via-[#070B14]/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070B14]/80 via-transparent to-[#070B14] z-10 pointer-events-none" />
+        
+        {/* Subtle mesh to tie into the Dark Tech aesthetic */}
+        <div className="absolute inset-0 mesh-gradient opacity-30 mix-blend-overlay pointer-events-none z-10" />
+      </div>
+
+      {/* Subtle Mesh Background Overlay - Reduced for 4K video clarity */}
       <motion.div 
-        className="absolute inset-0 z-0 mesh-gradient opacity-60"
+        className="absolute inset-0 z-0 mesh-gradient opacity-20 mix-blend-overlay"
         style={{ y: yBg }}
       />
       
@@ -37,7 +58,7 @@ export function HeroSection() {
         <div className="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] bg-sfl-gold/5 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
         
         {/* Subtle grid for industrial feel */}
-        <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[size:40px_40px]" />
       </div>
 
       {/* Main Content */}
@@ -45,62 +66,67 @@ export function HeroSection() {
         className="container mx-auto px-4 lg:px-8 relative z-10 pt-20"
         style={{ y: yText, opacity: opacityText }}
       >
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-4xl text-left">
           <motion.div
             initial={{ opacity: 0, scale: 0.98, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Premium Tagline */}
-            {/* Standardized Section Label */}
             <SectionLabel 
               text="Precision Manufacturing Since 2000" 
-              center 
               className="mb-12" 
             />
 
-            {/* Headline with high-end styling */}
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-black tracking-tighter leading-[0.95] text-white mb-6 sm:mb-8">
-              <span className="block mb-2 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
-                Engineered for
-              </span>
-              <span className="relative">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue via-white to-sfl-blue bg-[length:200%_auto] animate-[shimmer_5s_linear_infinite]">
-                  Excellence.
-                </span>
-              </span>
+            {/* Headline with high-end styling - Matched with Quality Page structure */}
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8 text-white">
+              Engineered for<br />
+              <TypeWriter words={["Excellence.", "Precision.", "Zero Defects."]} />
             </h1>
 
-            {/* Subheadline - Refined spacing and typography */}
-            <p className="text-sm sm:text-base font-body text-slate-400 max-w-3xl mx-auto mb-10 sm:mb-16 leading-relaxed font-medium px-2">
-              India's premier manufacturer of high-precision machined components and industrial fasteners. 
-              Certified quality, zero-defect production, and global delivery standards.
-            </p>
-
-            {/* CTAs with Magnetic Effect */}
-            <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 justify-center items-center px-4">
-              <Magnetic>
-                <Link 
-                  to="/products"
-                  className="block sm:inline-block px-8 sm:px-12 py-4 sm:py-5 bg-white text-black font-black uppercase tracking-widest text-xs sm:text-sm rounded-full hover:bg-sfl-blue hover:text-white transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.2)] w-full sm:w-auto text-center"
-                >
-                  Explore Catalog
-                </Link>
-              </Magnetic>
-              
-              <Magnetic>
-                <Link 
-                  to="/rfq"
-                  className="block sm:inline-flex items-center gap-3 text-sm font-black uppercase tracking-widest text-white/70 hover:text-white transition-colors group"
-                >
-                  Get Custom Quote
-                  <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-                </Link>
-              </Magnetic>
+            {/* Engineering Objective Card - Matched with Quality Page */}
+            <div className="mt-2 glass-panel p-4 sm:p-6 max-w-2xl mb-12">
+              <div className="flex items-center gap-2 mb-3">
+                <Award size={16} className="text-sfl-blue" />
+                <h3 className="text-xs font-body font-bold tracking-[0.3em] uppercase text-sfl-blue">Engineering & Manufacturing Objective</h3>
+              </div>
+              <p className="text-sm font-body text-slate-400 leading-relaxed italic font-medium">
+                "To consistently deliver precision-engineered shafts that meet customer specifications,
+                ensure superior quality, and achieve on-time delivery through continuous improvement and operational excellence."
+              </p>
             </div>
+
           </motion.div>
         </div>
+
+        {/* CTAs with Magnetic Effect - Truly Centered on Screen */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 1 }}
+          className="flex flex-col sm:flex-row gap-5 sm:gap-8 justify-center items-center px-4 mt-12 w-full"
+        >
+          <Magnetic>
+            <Link 
+              to="/products"
+              className="block sm:inline-block px-8 sm:px-12 py-4 sm:py-5 bg-sfl-blue text-white font-black uppercase tracking-widest text-xs sm:text-sm rounded-full hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_40px_rgba(25,148,245,0.3)] w-full sm:w-auto text-center"
+            >
+              Explore Catalog
+            </Link>
+          </Magnetic>
+          
+          <Magnetic>
+            <Link 
+              to="/rfq"
+              className="block sm:inline-flex items-center gap-3 text-sm font-black uppercase tracking-widest text-white/70 hover:text-white transition-colors group"
+            >
+              Get Custom Quote
+              <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+            </Link>
+          </Magnetic>
+        </motion.div>
       </motion.div>
+
 
       {/* Floating Scroll Indicator */}
       <motion.div 
