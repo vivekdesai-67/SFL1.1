@@ -5,6 +5,7 @@ import { Users, Target, Award, Shield, Factory, Zap, Timer, Briefcase } from "lu
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { TypeWriter } from "@/components/ui/TypeWriter";
 
 const stats = [
   { label: "Active Clients", value: "200+", icon: Users },
@@ -49,8 +50,26 @@ const About = () => {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#070B14]">
-        <div className="absolute inset-0 mesh-gradient opacity-20 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#070B14] to-transparent z-10" />
+        {/* Cinematic Background Video */}
+        <div className="absolute inset-0 z-0 opacity-70 overflow-hidden pointer-events-none">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover scale-105"
+          >
+            <source src="/videos/about-hero.mp4" type="video/mp4" />
+          </video>
+        </div>
+        
+        {/* Thematic Gradients for Premium Integration */}
+        {/* Strong dark fade on the left so the text is perfectly clear, graduating to transparent on the right to showcase the video natively */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070B14] via-[#070B14]/80 to-transparent z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070B14]/80 via-transparent to-[#070B14] z-0 pointer-events-none" />
+        
+        {/* Subtle mesh to tie into the Dark Tech aesthetic */}
+        <div className="absolute inset-0 mesh-gradient opacity-30 mix-blend-overlay pointer-events-none z-0" />
         
         <div className="container relative z-20 mx-auto px-4 lg:px-8">
           <motion.div
@@ -60,13 +79,23 @@ const About = () => {
             className="max-w-4xl"
           >
             <SectionLabel text="Our Legacy" />
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
-              Pioneering <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Precision</span><br /> Since 1989.
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8 text-white">
+              Pioneering <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Precision</span><br />
+              <TypeWriter words={["Engineering Excellence", "Global Leadership", "Innovation First"]} />
             </h1>
-            <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-medium max-w-2xl">
-              Shree Fasteners Private Limited (SFPL) has evolved from a specialist component manufacturer 
-              into a global leader in Tier-1 precision engineering and automated manufacturing.
-            </p>
+            
+            {/* Corporate Objective Card */}
+            <div className="mt-2 glass-panel p-4 sm:p-6 max-w-2xl">
+              <div className="flex items-center gap-2 mb-3">
+                <Target size={16} className="text-sfl-blue" />
+                <h3 className="text-xs font-body font-bold tracking-[0.3em] uppercase text-sfl-blue">Corporate Mission & Strategy</h3>
+              </div>
+              <p className="text-sm font-body text-slate-400 leading-relaxed italic font-medium">
+                "Shree Fasteners Private Limited (SFPL) is dedicated to evolving from a specialist component manufacturer 
+                into a global leader in Tier-1 precision engineering through uncompromising commitment to zero-defect 
+                manufacturing and automated technological advancement."
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>

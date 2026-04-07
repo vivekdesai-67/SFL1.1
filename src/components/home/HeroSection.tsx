@@ -74,25 +74,25 @@ export function HeroSection() {
           >
             {/* Premium Tagline */}
             <SectionLabel 
-              text="Precision Manufacturing Since 2000" 
+              text="Sangam Fasteners | Engineering the Future" 
               className="mb-12" 
             />
 
             {/* Headline with high-end styling - Matched with Quality Page structure */}
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8 text-white">
-              Engineered for<br />
-              <TypeWriter words={["Excellence.", "Precision.", "Zero Defects."]} />
+              Absolute Precision.<br />
+              <TypeWriter words={["Reliability.", "Innovation.", "Performance."]} />
             </h1>
 
             {/* Engineering Objective Card - Matched with Quality Page */}
             <div className="mt-2 glass-panel p-4 sm:p-6 max-w-2xl mb-12">
               <div className="flex items-center gap-2 mb-3">
                 <Award size={16} className="text-sfl-blue" />
-                <h3 className="text-xs font-body font-bold tracking-[0.3em] uppercase text-sfl-blue">Engineering & Manufacturing Objective</h3>
+                <h3 className="text-xs font-body font-bold tracking-[0.3em] uppercase text-sfl-blue">The SFL Advantage</h3>
               </div>
               <p className="text-sm font-body text-slate-400 leading-relaxed italic font-medium">
-                "To consistently deliver precision-engineered shafts that meet customer specifications,
-                ensure superior quality, and achieve on-time delivery through continuous improvement and operational excellence."
+                "We engineer the critical components that power global industries. From automotive drive systems to 
+                specialized home appliances, our precision-machined solutions are the foundation of modern mechanical excellence."
               </p>
             </div>
 
