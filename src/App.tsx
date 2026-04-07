@@ -13,6 +13,7 @@ import Contact from "./pages/Contact.tsx";
 import RFQ from "./pages/RFQ.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />

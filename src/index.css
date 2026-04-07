@@ -78,15 +78,11 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased selection:bg-sfl-blue/30;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    @apply bg-background text-foreground font-body antialiased selection:bg-sfl-blue/30;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
+    @apply font-display font-black tracking-tighter uppercase;
   }
 }
 

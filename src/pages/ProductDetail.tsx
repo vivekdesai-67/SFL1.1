@@ -10,6 +10,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { Progress } from "@/components/ui/progress";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { allProducts } from "./Products";
 
 const productData: Record<string, {
   title: string; sku: string; category: string; shortDesc: string;
@@ -112,7 +113,29 @@ const tabs = ["Overview", "Specifications", "Quality & Metrology", "Downloads"];
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const product = (id && productData[id]) || defaultProduct;
+  const catalogItem = allProducts.find((p) => p.id === id);
+  const detailData = (id && productData[id]) ? productData[id] : null;
+
+  const product = {
+    title: detailData?.title || catalogItem?.title || defaultProduct.title,
+    sku: detailData?.sku || defaultProduct.sku,
+    category: catalogItem?.category || detailData?.category || defaultProduct.category,
+    shortDesc: detailData?.shortDesc || catalogItem?.summary || defaultProduct.shortDesc,
+    overview: detailData?.overview || defaultProduct.overview,
+    specs: detailData?.specs || [
+      { param: "Material", value: catalogItem?.material || "Standard" },
+      { param: "Coating", value: catalogItem?.coating || "Standard" },
+      { param: "Application", value: catalogItem?.application || "Industrial" },
+      { param: "Thread", value: catalogItem?.thread || "N/A" },
+      { param: "Inspection", value: "ESSON VMM + Digital Micrometer" },
+    ],
+    quality: detailData?.quality || defaultProduct.quality,
+    downloads: detailData?.downloads || defaultProduct.downloads,
+    badges: detailData?.badges || (catalogItem?.badge ? [catalogItem.badge] : []),
+    image: catalogItem?.image,
+    noInvert: catalogItem?.noInvert,
+  };
+
   const [activeTab, setActiveTab] = useState("Overview");
 
   return (
@@ -135,23 +158,37 @@ const ProductDetail = () => {
           <div className="lg:col-span-2">
             {/* Product Header */}
             <ScrollReveal direction="up">
-              <div className="mb-12">
-                <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-6">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] border-l-2 border-sfl-blue pl-2">
-                    {product.category}
-                  </span>
-                  {(product.badges || []).map(badge => (
-                    <span key={badge} className="bg-sfl-blue/10 text-sfl-blue px-3 py-1 text-[9px] font-black uppercase tracking-widest rounded-full border border-sfl-blue/20">
-                      {badge}
+              <div className="mb-12 flex flex-col md:flex-row gap-8">
+                {product.image && (
+                  <div className="md:w-1/3 shrink-0">
+                    <div className="aspect-square bg-white/5 rounded-2xl flex items-center justify-center p-6 border border-white/10 group overflow-hidden relative">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -translate-x-full group-hover:translate-x-full" />
+                      <img 
+                        src={product.image} 
+                        alt={product.title} 
+                        className={`w-full h-full transition-transform duration-700 group-hover:scale-110 drop-shadow-2xl ${product.noInvert ? 'object-cover rounded opacity-80 mix-blend-luminosity' : 'object-contain invert brightness-105 contrast-125 mix-blend-screen'}`} 
+                      />
+                    </div>
+                  </div>
+                )}
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-6">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] border-l-2 border-sfl-blue pl-2">
+                      {product.category}
                     </span>
-                  ))}
+                    {(product.badges || []).map(badge => (
+                      <span key={badge} className="bg-sfl-blue/10 text-sfl-blue px-3 py-1 text-[9px] font-black uppercase tracking-widest rounded-full border border-sfl-blue/20">
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                  <h1 className="text-2xl sm:text-3xl md:text-5xl font-black uppercase tracking-tighter mt-2 mb-4 leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-slate-500">
+                    {product.title}
+                  </h1>
+                  <p className="text-[10px] text-slate-500 font-mono tracking-widest">SKU: {product.sku}</p>
+                  <div className="h-px w-full bg-gradient-to-r from-white/10 to-transparent my-8" />
+                  <p className="text-sm text-slate-400 leading-relaxed font-medium italic">"{product.shortDesc}"</p>
                 </div>
-                <h1 className="text-2xl sm:text-3xl md:text-5xl font-black uppercase tracking-tighter mt-2 mb-4 leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-slate-500">
-                  {product.title}
-                </h1>
-                <p className="text-[10px] text-slate-500 font-mono tracking-widest">SKU: {product.sku}</p>
-                <div className="h-px w-full bg-gradient-to-r from-white/10 to-transparent my-8" />
-                <p className="text-sm text-slate-400 leading-relaxed font-medium italic">"{product.shortDesc}"</p>
               </div>
             </ScrollReveal>
 

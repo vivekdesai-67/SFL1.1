@@ -44,13 +44,13 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
+            className="text-left max-w-4xl"
           >
-            <SectionLabel text="Establish Connection" center />
+            <SectionLabel text="Establish Connection" />
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
               Connect with <br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Global Excellence</span>
             </h1>
-            <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-medium max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-medium max-w-2xl">
               Our engineering experts are ready to discuss your Tier-1 precision requirements. 
               Partner with a leader in automated manufacturing and zero-defect quality.
             </p>

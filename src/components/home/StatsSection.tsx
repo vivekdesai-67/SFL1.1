@@ -35,7 +35,7 @@ function AnimatedNumber({ target, suffix }: { target: number; suffix: string }) 
   }, [inView, target]);
 
   return (
-    <div ref={ref} className="text-3xl md:text-4xl lg:text-5xl font-bold text-sfl-navy-foreground tracking-tight">
+    <div ref={ref} className="text-3xl md:text-4xl lg:text-5xl font-display font-black text-sfl-navy-foreground tracking-tighter">
       {count.toLocaleString()}
       <span className="text-2xl md:text-3xl lg:text-4xl text-sfl-navy-foreground/80 ml-1">{suffix}</span>
     </div>
@@ -52,9 +52,9 @@ export function StatsSection() {
           />
         
         <ScrollReveal direction="up" className="mb-20">
-          <h2 className="text-xl md:text-2xl lg:text-3xl uppercase tracking-widest text-white flex flex-wrap items-baseline gap-8">
-            <span className="font-bold">Infrastructure Built</span>
-            <span className="font-light">For Global Scale</span>
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-display font-black uppercase tracking-tighter text-white flex flex-wrap items-baseline gap-8">
+            <span>Infrastructure Built</span>
+            <span className="font-light opacity-50">For Global Scale</span>
           </h2>
         </ScrollReveal>
 
@@ -68,7 +68,7 @@ export function StatsSection() {
                 <stat.icon className="w-6 h-6 text-sfl-navy mb-5" strokeWidth={1.5} />
                 <div className="flex flex-col gap-3">
                   <AnimatedNumber target={stat.value} suffix={stat.suffix} />
-                  <p className="text-xs text-primary-foreground/50 uppercase tracking-widest font-semibold">
+                  <p className="text-xs font-body text-primary-foreground/50 uppercase tracking-[0.2em] font-black">
                     {stat.label}
                   </p>
                 </div>

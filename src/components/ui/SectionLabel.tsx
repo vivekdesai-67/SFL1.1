@@ -28,7 +28,7 @@ export const SectionLabel = ({ text, className, center = false }: SectionLabelPr
         transition={{ delay: 0.2, duration: 0.8, ease: "circOut" }}
         className="h-[2px] bg-sfl-gold shrink-0" 
       />
-      <span className="text-[10px] font-black tracking-[0.4em] uppercase text-sfl-gold whitespace-nowrap">
+      <span className="text-[10px] font-body font-black tracking-[0.4em] uppercase text-sfl-gold whitespace-nowrap">
         {text}
       </span>
       {center && (

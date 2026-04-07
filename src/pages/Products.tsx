@@ -10,11 +10,11 @@ import { Magnetic } from "@/components/ui/Magnetic";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
-type ProductItem = {
+export type ProductItem = {
   id: string; title: string; summary: string; category: string; material: string; coating: string; thread: string; application: string; badge: string | null; image?: string; noInvert?: boolean;
 };
 
-const allProducts: ProductItem[] = [
+export const allProducts: ProductItem[] = [
   {
     id: "shaft-020-6p",
     title: "020 (6P) Shaft",
@@ -113,12 +113,199 @@ const allProducts: ProductItem[] = [
     image: "/products/cnc-machining-housing-v2.png",
     noInvert: true,
   },
+  {
+    id: "t-slot-bolts",
+    title: "T-Slot Bolts / Slot Bolts",
+    summary: "Features a rectangular \"T\" head designed to lock into machine table slots to prevent rotation during tightening.",
+    category: "Fasteners",
+    material: "Alloy Steel",
+    coating: "Zinc Plated",
+    thread: "Metric / UNC",
+    application: "Industrial",
+    badge: null,
+    image: "/products/t-slot-bolts.jpg",
+  },
+  {
+    id: "shoulder-bushings",
+    title: "Shoulder Bushings / Flanged Sleeves",
+    summary: "Cylindrical spacers or bearings with a protruding lip (flange) to stop the part from sliding through a mounting hole.",
+    category: "Machined Components",
+    material: "Carbon Steel",
+    coating: "Plain / Oiled",
+    thread: "N/A",
+    application: "Industrial",
+    badge: null,
+    image: "/products/shoulder-bushings.jpg",
+    noInvert: true,
+  },
+  {
+    id: "custom-cnc-bolts",
+    title: "Custom CNC Machined Bolts & Studs",
+    summary: "A variety of specialized fasteners with unique head geometries (square, hex, slotted) for industrial machinery.",
+    category: "Fasteners",
+    material: "Alloy Steel",
+    coating: "Black Oxide",
+    thread: "Metric Custom",
+    application: "Industrial",
+    badge: null,
+    image: "/products/custom-cnc-bolts.jpg",
+  },
+  {
+    id: "ejector-pins",
+    title: "Ejector Pins & Guide Rods",
+    summary: "Long, slender, precision-ground rods used in injection molding to push finished plastic or metal parts out of a die.",
+    category: "Machined Components",
+    material: "Tool Steel",
+    coating: "Nitrided",
+    thread: "N/A",
+    application: "Industrial",
+    badge: null,
+    image: "/products/ejector-pins.jpg",
+    noInvert: true,
+  },
+  {
+    id: "tooling-spindles",
+    title: "Tooling Spindles / Collet Holders",
+    summary: "Larger high-precision components used in machining centers to hold and rotate cutting tools with extreme accuracy.",
+    category: "Machined Components",
+    material: "Alloy Steel",
+    coating: "Precision Ground",
+    thread: "High Precision",
+    application: "Manufacturing",
+    badge: null,
+    image: "/products/tooling-spindles.jpg",
+  },
+  {
+    id: "spline-shaft",
+    title: "Spline Shaft / Pinion Gear",
+    summary: "A drive shaft featuring integrated longitudinal teeth (splines) used to transmit high-torque rotation to a mating gear.",
+    category: "Shafts",
+    material: "Hardened Steel",
+    coating: "N/A",
+    thread: "Involute Spline",
+    application: "Industrial",
+    badge: null,
+    image: "/products/spline-shaft.jpg",
+  },
+  {
+    id: "threaded-clevis-pins",
+    title: "Threaded Clevis Pins / Pivot Pins",
+    summary: "Precision pins with center-drilled \"cross-holes\" designed for locking with a cotter pin or safety wire in mechanical linkages.",
+    category: "Machined Components",
+    material: "Stainless Steel",
+    coating: "Passivated",
+    thread: "N/A",
+    application: "Industrial",
+    badge: null,
+    image: "/products/threaded-clevis-pins.jpg",
+  },
+  {
+    id: "stepped-drive-shafts",
+    title: "Stepped Drive Shafts",
+    summary: "Shafts engineered with multiple diameter \"steps\" to provide specific seating positions for bearings, gears, or pulleys.",
+    category: "Shafts",
+    material: "Alloy Steel",
+    coating: "Ground Finish",
+    thread: "N/A",
+    application: "Automotive",
+    badge: null,
+    image: "/products/stepped-drive-shafts.jpg",
+    noInvert: true,
+  },
+  {
+    id: "cnc-turning-process",
+    title: "CNC Turning Process",
+    summary: "An \"in-action\" view of a CNC Lathe machine using a cutting tool to shape a rotating metal workpiece into a final part.",
+    category: "Machined Components",
+    material: "Various",
+    coating: "In-Process",
+    thread: "N/A",
+    application: "Manufacturing",
+    badge: "IN-ACTION",
+    image: "/products/cnc-turning-process.jpg",
+    noInvert: true,
+  },
+  {
+    id: "cnc-turned-parts-batch",
+    title: "CNC Turned Parts (Finished Batch)",
+    summary: "A bulk collection of finished, polished shafts that have passed through the turning and grinding stages.",
+    category: "Machined Components",
+    material: "Carbon Steel",
+    coating: "Protective Oil",
+    thread: "N/A",
+    application: "Manufacturing",
+    badge: null,
+    image: "/products/cnc-turned-parts-batch.jpg",
+    noInvert: true,
+  },
+  {
+    id: "heavy-duty-studs",
+    title: "Heavy-Duty Threaded Studs / Jack Bolts",
+    summary: "Long threaded rods with a machined base, often used as adjustable support legs or for leveling heavy machinery.",
+    category: "Fasteners",
+    material: "Alloy Steel",
+    coating: "Zinc Plated",
+    thread: "Large Diameter",
+    application: "Industrial",
+    badge: null,
+    image: "/products/heavy-duty-studs.jpg",
+  },
+  {
+    id: "standard-dowel-pins",
+    title: "Standard & Custom Dowel Pins",
+    summary: "A diverse range of alignment and locating pins used in automotive and tool-and-die assembly to ensure perfect part mating.",
+    category: "Machined Components",
+    material: "Hardened Steel",
+    coating: "Precision Ground",
+    thread: "N/A",
+    application: "Manufacturing",
+    badge: null,
+    image: "/products/standard-dowel-pins.jpg",
+  },
+  {
+    id: "main-drive-shaft",
+    title: "Main Drive Shaft / Spindle Shaft",
+    summary: "A large, heavy-duty stepped shaft designed to handle significant structural loads in transmission systems.",
+    category: "Shafts",
+    material: "Alloy Steel",
+    coating: "Chrome Plated",
+    thread: "N/A",
+    application: "Industrial",
+    badge: null,
+    image: "/products/main-drive-shaft.jpg",
+  },
+  {
+    id: "valve-spools",
+    title: "Valve Spools / Hydraulic Plungers",
+    summary: "Extremely high-precision cylinders used inside hydraulic valves to precisely control the flow and direction of fluid.",
+    category: "Machined Components",
+    material: "Hardened Steel",
+    coating: "Micro-Finished",
+    thread: "Precision Grade",
+    application: "Hydraulic",
+    badge: null,
+    image: "/products/valve-spools.jpg",
+    noInvert: true,
+  },
+  {
+    id: "pto-gear-shafts",
+    title: "PTO / Gear Input Shafts",
+    summary: "Specialized shafts featuring involute splines and pinion gears for power takeoff and transmission applications.",
+    category: "Shafts",
+    material: "Alloy Steel",
+    coating: "Case Hardened",
+    thread: "Spline Cut",
+    application: "Agricultural",
+    badge: null,
+    image: "/products/pto-gear-shafts.jpg",
+    noInvert: true,
+  },
 ];
 
 const filterOptions = {
   category: ["Shafts", "Fasteners", "Machined Components"],
-  material: ["Carbon Steel", "Alloy Steel", "Stainless Steel"],
-  application: ["Home Appliance", "Automotive", "Industrial"],
+  material: ["Alloy Steel", "Carbon Steel", "Stainless Steel", "Tool Steel", "Hardened Steel"],
+  application: ["Industrial", "Automotive", "Agricultural", "Hydraulic", "Manufacturing", "Home Appliance"],
 };
 
 type FilterKey = keyof typeof filterOptions;
@@ -164,10 +351,10 @@ const Products = () => {
             transition={{ duration: 0.8 }}
           >
             <SectionLabel text="Engineering Catalog" className="lg:justify-start" />
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
               Component<br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Solutions</span>
             </h1>
-            <p className="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-medium">
+            <p className="text-sm sm:text-base font-body text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-medium">
               A comprehensive portfolio of precision-engineered shafts, high-tensile 
               industrial fasteners, and custom CNC components built to global standards.
             </p>
@@ -193,7 +380,7 @@ const Products = () => {
               </div>
 
               <div>
-                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-6 text-slate-500">Filtration</h3>
+                <h3 className="text-[10px] font-body font-black uppercase tracking-[0.2em] mb-6 text-slate-500">Filtration</h3>
                 {(Object.entries(filterOptions) as [FilterKey, string[]][]).map(([key, options]) => (
                   <div key={key} className="mb-8">
                     <h4 className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] mb-4 opacity-70">{key}</h4>
@@ -253,7 +440,7 @@ const Products = () => {
                         <div className="h-48 sm:h-72 bg-[#070B14] mb-6 sm:mb-8 rounded-xl flex items-center justify-center border border-white/5 transition-colors overflow-hidden relative group-hover:border-white/10">
                           {product.image ? (
                             <>
-                              <img src={product.image} alt={product.title} className={`absolute inset-0 w-full h-full transition-all duration-700 group-hover:scale-110 [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)] ${product.noInvert ? 'object-cover opacity-80 mix-blend-luminosity group-hover:opacity-100 group-hover:mix-blend-normal' : 'object-contain invert brightness-105 contrast-125 mix-blend-screen'}`} />
+                              <img src={product.image} alt={product.title} className={`absolute inset-0 w-full h-full transition-all duration-700 group-hover:scale-110 [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)] ${product.noInvert ? 'object-cover rounded mix-blend-luminosity opacity-80 group-hover:opacity-100 transition-opacity' : 'object-contain invert brightness-105 contrast-125 mix-blend-screen'}`} />
                               <div className="absolute inset-0 bg-gradient-to-t from-[#070B14] via-[#070B14]/20 to-transparent pointer-events-none" />
                             </>
                           ) : product.category === "Shafts" ? (
@@ -300,4 +487,5 @@ const Products = () => {
 };
 
 export default Products;
+
 

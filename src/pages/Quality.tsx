@@ -2,7 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { ShieldCheck, ScanLine, Target, RefreshCw, Award, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Progress } from "@/components/ui/progress";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -52,6 +52,49 @@ const pillars = [
   { icon: RefreshCw, title: "Repeat Supplier", desc: "We build long-term partnerships through consistent quality, reliable delivery, and dependable performance that customers trust and return to." },
 ];
 
+const TypeWriter = ({ words, delay = 2500 }: { words: string[], delay?: number }) => {
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const targetWord = words[currentWordIndex];
+    // Slightly randomized speed for realistic human typing
+    const baseSpeed = isDeleting ? 25 : 65;
+    const typingSpeed = baseSpeed + (Math.random() * 20 - 10);
+
+    if (!isDeleting && currentText === targetWord) {
+      const timer = setTimeout(() => setIsDeleting(true), delay);
+      return () => clearTimeout(timer);
+    } else if (isDeleting && currentText === "") {
+      setIsDeleting(false);
+      setCurrentWordIndex((prev) => (prev + 1) % words.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setCurrentText((prev) => 
+        isDeleting ? targetWord.substring(0, prev.length - 1) : targetWord.substring(0, prev.length + 1)
+      );
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [currentText, isDeleting, currentWordIndex, words, delay]);
+
+  return (
+    <span className="inline-flex items-center min-h-[1.1em] pointer-events-none">
+      <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white uppercase whitespace-pre">
+        {currentText}
+      </span>
+      <motion.span
+        animate={{ opacity: [1, 0] }}
+        transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+        className="w-[4px] sm:w-[5px] md:w-[6px] h-[0.85em] bg-sfl-blue ml-1 md:ml-2 shadow-[0_0_12px_rgba(25,148,245,0.8)]"
+      />
+    </span>
+  );
+};
+
 const Quality = () => {
   const [instrFilter, setInstrFilter] = useState("All");
   const [showAllInstr, setShowAllInstr] = useState(false);
@@ -68,61 +111,62 @@ const Quality = () => {
   const maxCount = Math.max(...makeEntries.map(e => e[1]));
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#070B14] text-white selection:bg-sfl-blue/30 overflow-x-hidden">
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-20 bg-primary text-primary-foreground overflow-hidden">
-        {/* Animated Background Graphic */}
-        <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 opacity-[0.05] pointer-events-none hidden lg:block">
-          <motion.svg
-            width="800"
-            height="800"
-            viewBox="0 0 100 100"
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#070B14]">
+        {/* Cinematic Background Video */}
+        <div className="absolute inset-0 z-0 opacity-70 overflow-hidden pointer-events-none">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover scale-105"
           >
-            {/* Precision / Target / Caliper shape */}
-            <motion.g
-              animate={{ rotate: 360 }}
-              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-            >
-              <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="0.5" fill="none" strokeDasharray="1 3" />
-              <circle cx="50" cy="50" r="38" stroke="currentColor" strokeWidth="0.2" fill="none" />
-              <line x1="50" y1="5" x2="50" y2="15" stroke="currentColor" strokeWidth="1" />
-              <line x1="50" y1="95" x2="50" y2="85" stroke="currentColor" strokeWidth="1" />
-              <line x1="5" y1="50" x2="15" y2="50" stroke="currentColor" strokeWidth="1" />
-              <line x1="95" y1="50" x2="85" y2="50" stroke="currentColor" strokeWidth="1" />
-            </motion.g>
-            <motion.circle 
-              cx="50" cy="50" r="20" stroke="currentColor" strokeWidth="1" fill="none"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <circle cx="50" cy="50" r="2" fill="currentColor" />
-          </motion.svg>
+            <source src="/cnc-lathe.mp4?v=4" type="video/mp4" />
+          </video>
         </div>
-        <div className="container relative z-10 mx-auto px-4 lg:px-8">
-          <SectionLabel text="ISO 9001:2015 Certified" />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
-            Uncompromising Quality<br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Assurance & Metrology</span>
-          </h1>
+        
+        {/* Thematic Gradients for Premium Integration */}
+        {/* Strong dark fade on the left so the text is perfectly clear, graduating to transparent on the right to showcase the video natively */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070B14] via-[#070B14]/80 to-transparent z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070B14]/80 via-transparent to-[#070B14] z-0 pointer-events-none" />
+        
+        {/* Subtle mesh to tie into the Dark Tech aesthetic */}
+        <div className="absolute inset-0 mesh-gradient opacity-30 mix-blend-overlay pointer-events-none z-0" />
 
-          {/* Engineering Objective Card */}
-          <div className="mt-6 sm:mt-8 border border-primary-foreground/10 p-4 sm:p-6 max-w-2xl">
-            <div className="flex items-center gap-2 mb-3">
-              <Award size={16} className="text-sfl-blue" />
-              <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-sfl-blue">Engineering & Quality Objective</h3>
+        <div className="container relative z-20 mx-auto px-4 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl"
+          >
+            <SectionLabel text="ISO 9001:2015 Certified" />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
+              Uncompromising Quality<br />
+              <TypeWriter words={["Assurance & Metrology", "Precision Engineering", "Zero Defects"]} />
+            </h1>
+
+            {/* Engineering Objective Card */}
+            <div className="mt-2 glass-panel p-4 sm:p-6 max-w-2xl">
+              <div className="flex items-center gap-2 mb-3">
+                <Award size={16} className="text-sfl-blue" />
+                <h3 className="text-xs font-body font-bold tracking-[0.3em] uppercase text-sfl-blue">Engineering & Quality Objective</h3>
+              </div>
+              <p className="text-sm font-body text-slate-400 leading-relaxed italic font-medium">
+                "To consistently deliver precision-engineered shafts that meet customer specifications,
+                ensure superior quality, and achieve on-time delivery through continuous improvement and operational excellence."
+              </p>
             </div>
-            <p className="text-sm text-primary-foreground/70 leading-relaxed italic">
-              "To consistently deliver precision-engineered shafts that meet customer specifications, 
-              ensure superior quality, and achieve on-time delivery through continuous improvement and operational excellence."
-            </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Operation Discipline Pillars */}
-      <section className="py-16 bg-card border-b border-border">
+      <section className="py-20 bg-[#070B14] relative">
         <div className="container mx-auto px-4 lg:px-8">
           <SectionLabel text="Operation Discipline" />
           <ScrollReveal direction="up" className="mb-8">
@@ -155,7 +199,8 @@ const Quality = () => {
       </section>
 
       {/* Instrument Distribution Chart */}
-      <section className="py-16 bg-background border-b border-border">
+      <section className="py-20 bg-[#070B14] relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Bar Chart */}
@@ -168,13 +213,13 @@ const Quality = () => {
                       <span className="font-semibold uppercase tracking-wider">{make}</span>
                       <span className="text-sfl-blue font-bold">{count}</span>
                     </div>
-                    <div className="h-3 bg-muted overflow-hidden">
+                    <div className="h-3 bg-white/5 overflow-hidden rounded-full">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${(count / maxCount) * 100}%` }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="h-full bg-sfl-navy"
+                        className="h-full bg-sfl-blue rounded-full"
                       />
                     </div>
                   </div>
@@ -191,7 +236,7 @@ const Quality = () => {
                 { label: "Mitutoyo Equipment", value: "16", pct: 50 },
                 { label: "Precision (≤0.001 mm)", value: "15", pct: 47 },
               ].map(stat => (
-                <div key={stat.label} className="border border-border p-4">
+                <div key={stat.label} className="glass-panel p-4 rounded-xl">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-xs font-bold uppercase tracking-wider">{stat.label}</span>
                     <span className="text-lg font-black text-sfl-blue">{stat.value}</span>
@@ -205,7 +250,8 @@ const Quality = () => {
       </section>
 
       {/* Full Metrology Inventory */}
-      <section className="py-16 bg-background">
+      <section className="py-20 bg-[#070B14] relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">
             Complete Metrology Inventory
@@ -231,10 +277,10 @@ const Quality = () => {
             ))}
           </div>
 
-          <div className="border border-border bg-card overflow-x-auto">
+          <div className="rounded-2xl border border-white/5 bg-white/2 backdrop-blur-xl overflow-x-auto">
             <table className="w-full text-sm min-w-[600px]">
               <thead>
-                <tr className="border-b border-border bg-muted/30">
+                <tr className="border-b border-white/5 bg-white/3">
                   <th className="text-left px-4 py-3 text-xs font-bold uppercase tracking-wider w-12">Sl</th>
                   <th className="text-left px-4 py-3 text-xs font-bold uppercase tracking-wider">Instrument</th>
                   <th className="text-left px-4 py-3 text-xs font-bold uppercase tracking-wider">Range / Size</th>
@@ -251,13 +297,13 @@ const Quality = () => {
               </thead>
               <tbody>
                 {displayedInstr.map((inst) => (
-                  <tr key={inst.sl} className="border-b border-border/50 hover:bg-muted/20 transition-colors">
-                    <td className="px-4 py-3 text-muted-foreground font-mono text-xs">{inst.sl}</td>
+                  <tr key={inst.sl} className="border-b border-white/5 hover:bg-white/3 transition-colors">
+                    <td className="px-4 py-3 text-slate-600 font-mono text-xs">{inst.sl}</td>
                     <td className="px-4 py-3 font-medium">{inst.name}</td>
-                    <td className="px-4 py-3 text-muted-foreground">{inst.range}</td>
+                    <td className="px-4 py-3 text-slate-400 font-medium">{inst.range}</td>
                     <td className="px-4 py-3 font-mono text-xs text-sfl-blue font-bold">{inst.leastCount} mm</td>
                     <td className="px-4 py-3">
-                      <span className="text-[10px] bg-muted px-2 py-0.5 font-semibold uppercase tracking-wider">
+                      <span className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded font-semibold uppercase tracking-wider text-slate-300">
                         {inst.make}
                       </span>
                     </td>
@@ -276,7 +322,7 @@ const Quality = () => {
             </button>
           )}
 
-          <p className="text-xs text-muted-foreground mt-6 leading-relaxed max-w-2xl">
+          <p className="text-xs text-slate-500 mt-6 leading-relaxed max-w-2xl font-medium">
             Non-contact Video Measuring Machines safeguard delicate, highly polished components from physical marring 
             while ensuring exceptional, repeatable accuracy during high-volume, rapid inspection cycles.
           </p>

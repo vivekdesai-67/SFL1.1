@@ -130,10 +130,10 @@ const Infrastructure = () => {
             transition={{ duration: 0.8 }}
           >
             <SectionLabel text="Industrial Scale" className="lg:justify-start" />
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
               Manufacturing<br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Infrastructure</span>
             </h1>
-            <p className="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-medium">
+            <p className="text-sm sm:text-base font-body text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-medium">
               Our Hubballi facility houses 51 advanced production centers across 25,000 m² — 
               delivering precision engineering at global scale with 120+ specialist engineers.
             </p>
@@ -159,8 +159,8 @@ const Infrastructure = () => {
                       </div>
                       <Info size={14} className="text-slate-500 opacity-50" />
                     </div>
-                    <div className="text-3xl font-black text-white mb-2">{stat.value}</div>
-                    <div className="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-6">{stat.label}</div>
+                    <div className="text-3xl font-display font-black text-white mb-2">{stat.value}</div>
+                    <div className="text-[10px] font-body text-slate-400 font-black uppercase tracking-widest mb-6">{stat.label}</div>
                     <Progress value={stat.pct} className="h-1 bg-white/5" />
                   </div>
                 </div>
@@ -170,8 +170,175 @@ const Infrastructure = () => {
         </div>
       </section>
 
+      {/* ── Machines In Action – Photo Gallery ── */}
+      <section className="relative py-16 lg:py-32 overflow-hidden bg-[#070B14]">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-sfl-blue/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-sfl-blue/3 rounded-full blur-[100px]" />
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_49px,rgba(255,255,255,0.015)_49px,rgba(255,255,255,0.015)_50px),repeating-linear-gradient(0deg,transparent,transparent_49px,rgba(255,255,255,0.015)_49px,rgba(255,255,255,0.015)_50px)]" />
+        </div>
+
+        <div className="container relative z-10 mx-auto px-4 lg:px-8">
+          <ScrollReveal direction="up">
+            <div className="text-center mb-16 lg:mb-24">
+              <SectionLabel text="Our Machines — Up Close" className="justify-center" />
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mt-6 mb-6">
+                Machines<br />
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue via-white to-sfl-blue">In Action</span>
+              </h2>
+              <p className="text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
+                A visual tour of the precision equipment powering Sangam Fasteners — from multi-axis CNC turning centers and cylindrical grinders to advanced metrology instruments.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* ── Manufacturing Equipment ── */}
+          <div className="mb-20">
+            <ScrollReveal direction="up">
+              <div className="flex items-center gap-4 mb-10 border-b border-white/5 pb-4">
+                <div className="w-2 h-8 bg-sfl-blue rounded-full"></div>
+                <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tighter text-white">
+                  Manufacturing <span className="text-sfl-blue">Equipment</span>
+                </h3>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {[
+                { img: "/machinery/cnc-turning-midas6.png", name: "CNC Turning Center Midas 6", brand: "Galaxy", spec: "∅320mm × 650mm, 6000 RPM", category: "CNC Turning", color: "text-sfl-blue" },
+                { img: "/machinery/ace-cnc-lathe.png", name: "ACE CNC Lathe J 300 LM", brand: "ACE Designers Ltd.", spec: "LM Guideways, 8-Station Turret", category: "CNC Turning", color: "text-sfl-blue" },
+                { img: "/machinery/cnc-lathe-2.png", name: "CNC Lathe Machine", brand: "Industrial Grade", spec: "High-Precision Turning", category: "CNC Turning", color: "text-sfl-blue" },
+                { img: "/machinery/cylindrical-grinding.png", name: "Cylindrical Grinding Machine", brand: "Swift 500", spec: "OD / ID Precision Grinding", category: "Grinding", color: "text-sfl-blue" },
+                { img: "/machinery/swift-grinder.png", name: "CNC Cylindrical Grinder", brand: "Hi-Life", spec: "0.0001 mm Tolerance", category: "Grinding", color: "text-sfl-blue" },
+                { img: "/machinery/hilife-grinder.png", name: "Hi-Life CNC Grinder", brand: "Hi-Life", spec: "CNC Cylindrical Grinding", category: "Grinding", color: "text-sfl-blue" },
+                { img: "/machinery/surface-grinder.png", name: "Surface Grinder", brand: "Precision Grade", spec: "Flat Surface Finishing", category: "Grinding", color: "text-sfl-blue" },
+                { img: "/machinery/vmc-chandra.png", name: "VMC Chandra", brand: "Chandra", spec: "Vertical Machining Center", category: "VMC", color: "text-sfl-blue" },
+                { img: "/machinery/vmc-gourav.png", name: "VMC Gourav", brand: "Gaurav BMV 35 TC220", spec: "High-Speed Vertical Mill", category: "VMC", color: "text-sfl-blue" },
+                { img: "/machinery/cnc-cutting-saw.png", name: "CNC Circular Saw Machine", brand: "MEC Technology MEC 100", spec: "FANC CSM Control", category: "Cutting", color: "text-sfl-blue" },
+                { img: "/machinery/drilling-tapping.png", name: "Drilling & Tapping Machine", brand: "Multi-Spindle", spec: "Simultaneous Multi-Axis", category: "Drilling", color: "text-sfl-blue" },
+                { img: "/machinery/hydraulic-thread-rolling.png", name: "Hydraulic Thread Rolling", brand: "Thread Aid", spec: "High-Precision Thread Form", category: "Threading", color: "text-sfl-blue" },
+                { img: "/machinery/hydraulic-pressing.png", name: "Hydraulic Pressing Machine", brand: "Royal / Polhydron", spec: "Heavy-Duty Pressing", category: "Pressing", color: "text-sfl-blue" },
+                { img: "/machinery/punching-machine.png", name: "Punching Machine", brand: "Harrison's", spec: "Precision Punching", category: "Pressing", color: "text-sfl-blue" },
+              ].map((machine, i) => (
+                <ScrollReveal key={`${machine.name}-${i}`} direction="up" delay={Math.min(i * 0.04, 0.4)}>
+                  <motion.div
+                    className="group relative flex flex-col h-full rounded-[2rem] border border-white/5 bg-white/[0.015] hover:bg-white/[0.03] p-2 sm:p-3 transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,255,255,0.03)] cursor-default"
+                    whileHover={{ y: -8, scale: 1.02 }}
+                  >
+                    {/* Premium Image Wrapper */}
+                    <div className="relative overflow-hidden rounded-[1.5rem] bg-[#070B14] aspect-[4/3] w-full shrink-0 flex items-center justify-center border border-white/5 group-hover:border-white/10 transition-colors p-4">
+                      <div className="absolute inset-0 z-20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none skew-x-12" />
+                      
+                      <div className="absolute top-3 left-3 z-30">
+                        <span className={`text-[8px] font-black uppercase tracking-[0.2em] px-2 py-1 bg-[#070B14]/80 backdrop-blur-md border border-white/10 rounded-full shadow-2xl ${machine.color}`}>
+                          {machine.category}
+                        </span>
+                      </div>
+                      
+                      <img
+                        src={machine.img}
+                        alt={machine.name}
+                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.05] drop-shadow-2xl opacity-95 group-hover:opacity-100"
+                      />
+                    </div>
+
+                    {/* Premium Info Panel */}
+                    <div className="p-4 sm:p-6 flex-1 flex flex-col justify-start">
+                      <h3 className="text-sm sm:text-base font-black uppercase tracking-tight text-white mb-1.5 group-hover:text-white transition-colors leading-tight">
+                        {machine.name}
+                      </h3>
+                      <p className={`text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] mb-4 ${machine.color} opacity-80`}>{machine.brand}</p>
+                      
+                      <div className="mt-auto">
+                        <div className="flex items-center gap-3 border-t border-white/10 pt-4">
+                          <div className={`w-1.5 h-1.5 rounded-full ${machine.color.replace('text-', 'bg-')} shadow-[0_0_10px_currentColor] shrink-0`} />
+                          <p className="text-[10px] sm:text-xs text-slate-400 font-medium tracking-wide">{machine.spec}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Measuring Instruments ── */}
+          <div>
+            <ScrollReveal direction="up">
+              <div className="flex items-center gap-4 mb-10 border-b border-white/5 pb-4">
+                <div className="w-2 h-8 bg-sfl-blue rounded-full"></div>
+                <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tighter text-white">
+                  Measuring <span className="text-sfl-blue">Instruments</span>
+                </h3>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {[
+                { img: "/machinery/esson-vmm.png", name: "ESSON Video Measuring Machine", brand: "ESSON VMM", spec: "0.0001 mm Resolution", category: "Metrology", color: "text-sfl-blue" },
+                { img: "/machinery/digital-micrometer.png", name: "Digital Micrometer Station", brand: "Mitutoyo", spec: "0.001 mm Accuracy", category: "Metrology", color: "text-sfl-blue" },
+                { img: "/machinery/analog-micrometer.png", name: "0-25 MM Micrometer", brand: "Mitutoyo", spec: "0.01 mm Accuracy", category: "Metrology", color: "text-sfl-blue" },
+                { img: "/machinery/inspection-equipment.png", name: "Inspection Equipment", brand: "Baker / Yuzuki", spec: "Height Gauge 0.02 mm", category: "Metrology", color: "text-sfl-blue" },
+              ].map((machine, i) => (
+                <ScrollReveal key={`${machine.name}-${i}`} direction="up" delay={Math.min(i * 0.04, 0.4)}>
+                  <motion.div
+                    className="group relative flex flex-col h-full rounded-[2rem] border border-white/5 bg-white/[0.015] hover:bg-white/[0.03] p-2 sm:p-3 transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,255,255,0.03)] cursor-default"
+                    whileHover={{ y: -8, scale: 1.02 }}
+                  >
+                    {/* Premium Image Wrapper */}
+                    <div className="relative overflow-hidden rounded-[1.5rem] bg-[#070B14] aspect-[4/3] w-full shrink-0 flex items-center justify-center border border-white/5 group-hover:border-white/10 transition-colors p-4">
+                      <div className="absolute inset-0 z-20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none skew-x-12" />
+                      
+                      <div className="absolute top-3 left-3 z-30">
+                        <span className={`text-[8px] font-black uppercase tracking-[0.2em] px-2 py-1 bg-[#070B14]/80 backdrop-blur-md border border-white/10 rounded-full shadow-2xl ${machine.color}`}>
+                          {machine.category}
+                        </span>
+                      </div>
+                      
+                      <img
+                        src={machine.img}
+                        alt={machine.name}
+                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.05] drop-shadow-2xl opacity-95 group-hover:opacity-100"
+                      />
+                    </div>
+
+                    {/* Premium Info Panel */}
+                    <div className="p-4 sm:p-6 flex-1 flex flex-col justify-start">
+                      <h3 className="text-sm sm:text-base font-black uppercase tracking-tight text-white mb-1.5 group-hover:text-white transition-colors leading-tight">
+                        {machine.name}
+                      </h3>
+                      <p className={`text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] mb-4 ${machine.color} opacity-80`}>{machine.brand}</p>
+                      
+                      <div className="mt-auto">
+                        <div className="flex items-center gap-3 border-t border-white/10 pt-4">
+                          <div className={`w-1.5 h-1.5 rounded-full ${machine.color.replace('text-', 'bg-')} shadow-[0_0_10px_currentColor] shrink-0`} />
+                          <p className="text-[10px] sm:text-xs text-slate-400 font-medium tracking-wide">{machine.spec}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+
+          <ScrollReveal direction="up" delay={0.2}>
+            <div className="text-center mt-20 pt-12 border-t border-white/5">
+              <p className="text-[11px] font-black uppercase tracking-[0.25em] text-slate-500 mb-6">Powered by Industry-Leading Equipment</p>
+              <div className="flex flex-wrap items-center justify-center gap-6">
+                {["Galaxy Midas 6", "ACE J 300 LM", "Hi-Life Grinding", "ESSON VMM", "Mitutoyo", "Swift 500"].map((brand) => (
+                  <span key={brand} className="text-[10px] font-black uppercase tracking-widest text-white/30 hover:text-sfl-blue transition-colors cursor-default">
+                    {brand}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Category Accordion - Refined Design */}
-      <section className="py-24 bg-[#070B14]">
+      <section className="py-16 lg:py-24 bg-[#070B14]">
         <div className="container mx-auto px-4 lg:px-8">
           <ScrollReveal direction="up" className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tighter flex items-center gap-4">
@@ -228,7 +395,7 @@ const Infrastructure = () => {
       </section>
 
       {/* Machine Inventory - Premium Table */}
-      <section className="py-24 bg-[#070B14] relative">
+      <section className="py-16 lg:py-24 bg-[#070B14] relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
@@ -244,7 +411,7 @@ const Infrastructure = () => {
                   <button
                     key={cat}
                     onClick={() => setFilter(cat)}
-                    className={`px-4 py-2 text-[10px] font-black uppercase tracking-widest rounded-full border transition-all duration-300 ${
+                    className={`px-3 py-1.5 sm:px-4 sm:py-2 text-[9px] sm:text-[10px] font-black uppercase tracking-widest rounded-full border transition-all duration-300 ${
                       filter === cat
                         ? "bg-sfl-blue border-sfl-blue text-white shadow-lg shadow-sfl-blue/30"
                         : "border-white/10 text-slate-500 hover:border-white/30 hover:text-white"
@@ -348,7 +515,9 @@ const Infrastructure = () => {
         </div>
       </section>
 
+
       <Footer />
+
     </div>
   );
 };

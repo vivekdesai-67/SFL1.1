@@ -11,7 +11,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const Index = () => {
   return (
-    <div className="relative min-h-screen bg-[#070B14] text-white selection:bg-sfl-blue/30 overflow-x-hidden">
+    <div style={{ position: "relative" }} className="relative min-h-screen bg-[#070B14] text-white selection:bg-sfl-blue/30 overflow-x-hidden">
       <Navbar />
       
       <HeroSection />

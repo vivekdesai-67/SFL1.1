@@ -143,6 +143,161 @@ const About = () => {
         </div>
       </section>
 
+      {/* Leadership & Recognition */}
+      <section className="py-32 bg-[#070B14] relative overflow-hidden">
+        <div className="absolute inset-0 mesh-gradient opacity-10 pointer-events-none" />
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="text-center mb-20">
+            <SectionLabel text="Leadership & Excellence" center />
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter">
+              Recognized <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Globally</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
+            {/* Leadership Profiles */}
+            <ScrollReveal direction="up">
+              <Magnetic>
+                <div className="glass-panel p-10 text-left group h-full relative overflow-hidden transition-all duration-500 hover:border-sfl-blue/40">
+                  {/* Decorative Elements */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-sfl-blue/10 blur-[80px] rounded-full group-hover:bg-sfl-blue/20 transition-colors duration-700 pointer-events-none" />
+                  
+                  <div className="flex flex-col sm:flex-row gap-8 items-center sm:items-start relative z-10">
+                    <div className="relative shrink-0">
+                      <div className="absolute inset-0 bg-sfl-blue/20 blur-xl group-hover:bg-sfl-blue/40 transition-colors duration-500 rounded-2xl opacity-0 group-hover:opacity-100" />
+                      <div className="w-40 h-40 rounded-2xl overflow-hidden relative border border-white/10 bg-white/5 shadow-2xl">
+                        <img 
+                          src="/images/chairman-profile.png" 
+                          alt="Ishwarappa S Handigol - Chairman" 
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-1 group-hover:text-sfl-blue transition-colors">
+                        Ishwarappa S <span className="text-slate-500">Handigol</span>
+                      </h3>
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="h-[2px] w-4 bg-sfl-gold" />
+                        <p className="text-sfl-gold text-[10px] font-black tracking-[0.3em] uppercase">Chairman / Director</p>
+                      </div>
+                      <p className="text-sm text-slate-400 font-medium leading-relaxed mb-4">
+                        A first-generation entrepreneur & visionary leader with 50+ years of industrial experience. His passion for automotive and home appliances has brought immense success, focused always on maximum customer satisfaction.
+                      </p>
+                      <div className="flex gap-4">
+                         <div className="text-[10px] font-black uppercase tracking-widest text-slate-600 bg-white/5 px-3 py-1 rounded-full border border-white/5">50+ Years Exp.</div>
+                         <div className="text-[10px] font-black uppercase tracking-widest text-slate-600 bg-white/5 px-3 py-1 rounded-full border border-white/5">Founder</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Magnetic>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" delay={0.2}>
+              <Magnetic>
+                <div className="glass-panel p-10 text-left group h-full relative overflow-hidden transition-all duration-500 hover:border-sfl-blue/40">
+                  {/* Decorative Elements */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-sfl-blue/10 blur-[80px] rounded-full group-hover:bg-sfl-blue/20 transition-colors duration-700 pointer-events-none" />
+                  
+                  <div className="flex flex-col sm:flex-row gap-8 items-center sm:items-start relative z-10">
+                    <div className="relative shrink-0">
+                       <div className="absolute inset-0 bg-sfl-blue/20 blur-xl group-hover:bg-sfl-blue/40 transition-colors duration-500 rounded-2xl opacity-0 group-hover:opacity-100" />
+                      <div className="w-40 h-40 rounded-2xl overflow-hidden relative border border-white/10 bg-white/5 shadow-2xl">
+                        <img 
+                          src="/images/ceo-profile.png" 
+                          alt="Sangamesh I Handigol - CEO" 
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-1 group-hover:text-sfl-blue transition-colors">
+                        Sangamesh I <span className="text-slate-500">Handigol</span>
+                      </h3>
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="h-[2px] w-4 bg-sfl-blue" />
+                        <p className="text-sfl-blue text-[10px] font-black tracking-[0.3em] uppercase">CEO / Marketing Head</p>
+                      </div>
+                      <p className="text-sm text-slate-400 font-medium leading-relaxed mb-4">
+                        A Marketing graduate with over 20 years of experience in the family business. He is the driving force implementing modern ways to simplify business and make Sangam Fasteners a reputed organization globally.
+                      </p>
+                      <div className="flex gap-4">
+                         <div className="text-[10px] font-black uppercase tracking-widest text-slate-600 bg-white/5 px-3 py-1 rounded-full border border-white/5">20+ Years Exp.</div>
+                         <div className="text-[10px] font-black uppercase tracking-widest text-slate-600 bg-white/5 px-3 py-1 rounded-full border border-white/5">Innovation</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Magnetic>
+            </ScrollReveal>
+          </div>
+
+          {/* Awards Text */}
+          <ScrollReveal direction="up">
+            <div className="text-center mb-16 max-w-4xl mx-auto px-4">
+              <div className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full border border-sfl-blue/20 bg-sfl-blue/5 shadow-[0_0_15px_rgba(25,148,245,0.05)]">
+                <Award className="w-4 h-4 text-sfl-blue drop-shadow-[0_0_8px_rgba(25,148,245,0.5)]" />
+                <span className="text-[10px] font-body font-black uppercase tracking-[0.4em] text-sfl-blue">Prestigious Recognition</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-black uppercase tracking-tighter leading-[1.1] text-slate-300">
+                Sangam Fasteners Pvt Ltd has been recognized as one of the <br className="hidden md:block" /> 
+                <span className="text-white underline decoration-sfl-blue/50 decoration-2 underline-offset-[12px]">Top Manufacturers in shafts</span> and was honored with the <br className="hidden md:block" />
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Best Supplier Award from IFB</span>.
+              </h3>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <ScrollReveal direction="up" delay={0.1}>
+              <div className="glass-panel overflow-hidden group relative">
+                <div className="aspect-video relative bg-[#070B14]">
+                  <img src="/images/ifb-award.png" alt="IFB Supplier Partners Meet 2014" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070B14] via-[#070B14]/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500" />
+                  
+                  {/* Glass Card content */}
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                    <div className="relative overflow-hidden inline-block px-4 py-1 rounded mb-3 border border-white/10 bg-white/5 backdrop-blur-md">
+                       <span className="text-sfl-blue text-[10px] font-black tracking-[0.4em] uppercase relative z-10">2014 Recognition</span>
+                    </div>
+                    <h4 className="text-2xl font-black uppercase tracking-tight leading-none text-white group-hover:text-sfl-blue transition-colors">
+                      IFB Supplier <br />Partners Meet
+                    </h4>
+                  </div>
+                  
+                  {/* Decorative corner */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-sfl-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" delay={0.2}>
+              <div className="glass-panel overflow-hidden group relative">
+                <div className="aspect-video relative bg-[#070B14]">
+                  <img src="/images/sbi-award.png" alt="Bank Day 1st July 2017 SBI Award" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070B14] via-[#070B14]/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500" />
+                  
+                  {/* Glass Card content */}
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                    <div className="relative overflow-hidden inline-block px-4 py-1 rounded mb-3 border border-white/10 bg-white/5 backdrop-blur-md">
+                       <span className="text-sfl-gold text-[10px] font-black tracking-[0.4em] uppercase relative z-10">2017 Recognition</span>
+                    </div>
+                    <h4 className="text-2xl font-black uppercase tracking-tight leading-none text-white group-hover:text-sfl-gold transition-colors">
+                      SBI Bank Day <br />Industrial Excellence
+                    </h4>
+                  </div>
+
+                  {/* Decorative corner */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-sfl-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* Strategic Timeline */}
       <section className="py-32 bg-[#070B14] relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -192,7 +347,7 @@ const About = () => {
       <section className="py-32 bg-[#070B14]">
         <div className="container mx-auto px-4 lg:px-8">
           <ScrollReveal direction="up">
-            <div className="glass-panel p-16 text-center relative overflow-hidden group">
+            <div className="glass-panel p-8 sm:p-16 text-center relative overflow-hidden group">
               <div className="absolute inset-0 mesh-gradient opacity-10 group-hover:opacity-20 transition-opacity duration-1000" />
               <div className="relative z-10">
                 <Award className="w-16 h-16 text-sfl-blue mx-auto mb-8 animate-pulse" />
@@ -204,12 +359,12 @@ const About = () => {
                 </h2>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Magnetic>
-                <a href="/products" className="px-8 sm:px-10 py-4 sm:py-5 bg-sfl-blue rounded-xl text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-600 transition-all shadow-[0_0_40px_rgba(25,148,245,0.3)] w-full sm:w-auto text-center">
+                <a href="/products" className="block sm:inline-block px-6 sm:px-10 py-4 sm:py-5 bg-sfl-blue rounded-xl text-xs font-black uppercase tracking-[0.2em] hover:bg-blue-600 transition-all shadow-[0_0_40px_rgba(25,148,245,0.3)] w-full sm:w-auto text-center">
                       Explore Capabilities
                     </a>
                   </Magnetic>
                   <Magnetic>
-                <a href="/contact" className="px-8 sm:px-10 py-4 sm:py-5 rounded-xl border border-white/10 text-xs font-black uppercase tracking-[0.2em] hover:bg-white/5 transition-all w-full sm:w-auto text-center">
+                <a href="/contact" className="block sm:inline-block px-6 sm:px-10 py-4 sm:py-5 rounded-xl border border-white/10 text-xs font-black uppercase tracking-[0.2em] hover:bg-white/5 transition-all w-full sm:w-auto text-center">
                       Contact Expertise
                     </a>
                   </Magnetic>
