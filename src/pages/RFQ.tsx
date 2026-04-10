@@ -8,6 +8,7 @@ import { Mail, Phone, MapPin, Shield } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 const steps = [
   { label: "Corporate Details", num: 1 },
@@ -116,9 +117,11 @@ const RFQ = () => {
                     <Input value={formData.phone} onChange={(e) => update("phone", e.target.value)} placeholder="+91 XXXXX XXXXX" />
                   </div>
                 </div>
-                <Button variant="sfl-navy" onClick={() => setStep(2)} className="mt-4">
-                  Continue to Specifications →
-                </Button>
+                <Magnetic>
+                  <Button variant="sfl-navy" onClick={() => setStep(2)} className="mt-4">
+                    Continue to Specifications →
+                  </Button>
+                </Magnetic>
               </div>
             )}
 
@@ -148,8 +151,8 @@ const RFQ = () => {
                   <Textarea value={formData.notes} onChange={(e) => update("notes", e.target.value)} placeholder="Special requirements, surface finish, plating preferences..." rows={4} />
                 </div>
                 <div className="flex gap-3 mt-4">
-                  <Button variant="ghost-industrial" onClick={() => setStep(1)}>← Back</Button>
-                  <Button variant="sfl-navy" onClick={() => setStep(3)}>Continue to Upload →</Button>
+                  <Magnetic><Button variant="ghost-industrial" onClick={() => setStep(1)}>← Back</Button></Magnetic>
+                  <Magnetic><Button variant="sfl-navy" onClick={() => setStep(3)}>Continue to Upload →</Button></Magnetic>
                 </div>
               </div>
             )}
@@ -170,10 +173,12 @@ const RFQ = () => {
                   </p>
                 </div>
                 <div className="flex gap-3">
-                  <Button variant="ghost-industrial" onClick={() => setStep(2)}>← Back</Button>
-                  <Button variant="sfl-navy" onClick={handleSubmit}>
-                    Submit RFQ for Secure Engineering Review
-                  </Button>
+                  <Magnetic><Button variant="ghost-industrial" onClick={() => setStep(2)}>← Back</Button></Magnetic>
+                  <Magnetic>
+                    <Button variant="sfl-navy" onClick={handleSubmit}>
+                      Submit RFQ for Secure Engineering Review
+                    </Button>
+                  </Magnetic>
                 </div>
               </div>
             )}

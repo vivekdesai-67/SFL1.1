@@ -11,6 +11,7 @@ import { Progress } from "@/components/ui/progress";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { allProducts } from "./Products";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 const productData: Record<string, {
   title: string; sku: string; category: string; shortDesc: string;
@@ -303,9 +304,11 @@ const ProductDetail = () => {
                           </div>
                           <span className="text-[11px] font-black uppercase tracking-widest text-white/80">{d}</span>
                         </div>
-                        <Button variant="ghost" className="text-[10px] font-black uppercase tracking-widest text-sfl-blue hover:text-white hover:bg-sfl-blue transition-all">
-                          Download PDF
-                        </Button>
+                        <Magnetic>
+                          <Button variant="ghost" className="text-[10px] font-black uppercase tracking-widest text-sfl-blue hover:text-white hover:bg-sfl-blue transition-all">
+                            Download PDF
+                          </Button>
+                        </Magnetic>
                       </div>
                     ))}
                   </div>
@@ -328,12 +331,16 @@ const ProductDetail = () => {
                 </div>
                 
                 <div className="space-y-3">
-                  <Button className="w-full bg-sfl-blue hover:bg-white hover:text-black text-white text-[10px] font-black uppercase tracking-widest py-6 transition-all duration-500 rounded-none" asChild>
-                    <Link to="/rfq">Add to Quote Request</Link>
-                  </Button>
-                  <Button variant="outline" className="w-full border-white/10 hover:border-sfl-blue hover:bg-sfl-blue/5 text-slate-400 hover:text-white text-[10px] font-black uppercase tracking-widest py-6 transition-all duration-500 rounded-none" asChild>
-                    <Link to="/rfq">Engineering Support</Link>
-                  </Button>
+                  <Magnetic>
+                    <Button className="w-full bg-sfl-blue hover:bg-white hover:text-black text-white text-[10px] font-black uppercase tracking-widest py-6 transition-all duration-500 rounded-none" asChild>
+                      <Link to="/rfq">Add to Quote Request</Link>
+                    </Button>
+                  </Magnetic>
+                  <Magnetic>
+                    <Button variant="outline" className="w-full border-white/10 hover:border-sfl-blue hover:bg-sfl-blue/5 text-slate-400 hover:text-white text-[10px] font-black uppercase tracking-widest py-6 transition-all duration-500 rounded-none" asChild>
+                      <Link to="/rfq">Engineering Support</Link>
+                    </Button>
+                  </Magnetic>
                 </div>
 
                 <div className="space-y-4 pt-6 border-t border-white/5">

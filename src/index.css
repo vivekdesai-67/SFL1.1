@@ -95,6 +95,36 @@
     radial-gradient(at 0% 100%, hsla(206, 91%, 53%, 0.1) 0px, transparent 50%);
 }
 
+/* ─── Mobile-safe video background ─── */
+/* Use this alongside absolute inset-0 on the <video> element */
+.video-bg-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Correct fill on all browsers including iOS Safari */
+.video-bg-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+/* On mobile, reduce backdrop-filter blur to prevent GPU jank */
+@media (max-width: 768px) {
+  .glass-panel {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
 /* Glassmorphic panels */
 .glass-panel {
   background: hsla(var(--glass-bg));

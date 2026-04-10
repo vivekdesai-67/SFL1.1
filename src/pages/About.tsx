@@ -6,6 +6,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { TypeWriter } from "@/components/ui/TypeWriter";
+import { useRef, useEffect } from "react";
 
 const stats = [
   { label: "Active Clients", value: "200+", icon: Users },
@@ -44,6 +45,20 @@ const timeline = [
 ];
 
 const About = () => {
+  const aboutVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = aboutVideoRef.current;
+    if (!video) return;
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay prevented; poster shown
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#070B14] text-white selection:bg-sfl-blue/30 overflow-x-hidden">
       <Navbar />
@@ -53,11 +68,14 @@ const About = () => {
         {/* Cinematic Background Video */}
         <div className="absolute inset-0 z-0 opacity-70 overflow-hidden pointer-events-none">
           <video 
+            ref={aboutVideoRef}
             autoPlay 
             loop 
             muted 
             playsInline 
-            className="w-full h-full object-cover scale-105"
+            preload="auto"
+            poster="/quality-hero-bg.jpg"
+            className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/videos/about-hero.mp4" type="video/mp4" />
           </video>

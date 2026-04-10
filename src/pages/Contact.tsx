@@ -47,7 +47,7 @@ const Contact = () => {
             className="text-left max-w-4xl"
           >
             <SectionLabel text="Establish Connection" />
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-6 sm:mb-8">
               Connect with <br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-sfl-blue to-white">Global Excellence</span>
             </h1>
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-medium max-w-2xl">
@@ -82,7 +82,7 @@ const Contact = () => {
       </section>
 
       {/* Unified Inquiry & Location */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-16 sm:py-32 relative overflow-hidden">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             
@@ -96,7 +96,7 @@ const Contact = () => {
                 <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-6 sm:mb-8">Send Inquiries</h2>
                 
                 <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
                       <label className="text-[10px] font-black uppercase tracking-widest text-[#A5D8FF] ml-1">Full Name</label>
                       <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-sfl-blue/50 transition-colors" placeholder="John Doe" />

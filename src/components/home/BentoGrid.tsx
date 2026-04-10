@@ -142,11 +142,12 @@ export function BentoGrid() {
         </ScrollReveal>
 
         <ScrollReveal direction="up" staggerChildren={0.1}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 auto-rows-[280px] sm:auto-rows-[320px]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {cards.map((card) => (
               <div
                 key={card.title}
                 className={`${card.span} flex`}
+                style={{ minHeight: card.large ? '420px' : '280px' }}
               >
                 <Link to="/products" className="w-full h-full block group/link">
                   <BentoCard card={card} />

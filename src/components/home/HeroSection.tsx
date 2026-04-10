@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, FileText, ChevronDown } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { TypeWriter } from "@/components/ui/TypeWriter";
@@ -10,10 +10,24 @@ import { Award } from "lucide-react";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
+
+  // Force video playback on mobile — browsers may block autoplay silently
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay was prevented; video will show poster
+      });
+    }
+  }, []);
 
   // Parallax values
   const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
@@ -30,11 +44,14 @@ export function HeroSection() {
       {/* Premium High-Fidelity Video Background Integration */}
       <div className="absolute inset-0 z-0 opacity-70 overflow-hidden pointer-events-none">
         <video 
+          ref={videoRef}
           autoPlay 
           loop 
           muted 
           playsInline 
-          className="w-full h-full object-cover scale-105 transition-opacity duration-1000"
+          preload="auto"
+          poster="/quality-hero-bg.jpg"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
         >
           <source src="/videos/hero-cnc.mp4" type="video/mp4" />
         </video>
@@ -99,17 +116,17 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* CTAs with Magnetic Effect - Truly Centered on Screen */}
+        {/* CTAs with Magnetic Effect - Mobile Optimized */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 1 }}
-          className="flex flex-col sm:flex-row gap-5 sm:gap-8 justify-center items-center px-4 mt-12 w-full"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center px-4 mt-12 w-full"
         >
           <Magnetic>
             <Link 
               to="/products"
-              className="block sm:inline-block px-8 sm:px-12 py-4 sm:py-5 bg-sfl-blue text-white font-black uppercase tracking-widest text-xs sm:text-sm rounded-full hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_40px_rgba(25,148,245,0.3)] w-full sm:w-auto text-center"
+              className="block px-8 sm:px-12 py-4 sm:py-5 bg-sfl-blue text-white font-black uppercase tracking-widest text-xs sm:text-sm rounded-full hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_40px_rgba(25,148,245,0.3)] w-full sm:w-auto text-center"
             >
               Explore Catalog
             </Link>
@@ -118,10 +135,10 @@ export function HeroSection() {
           <Magnetic>
             <Link 
               to="/rfq"
-              className="block sm:inline-flex items-center gap-3 text-sm font-black uppercase tracking-widest text-white/70 hover:text-white transition-colors group"
+              className="inline-flex items-center justify-center gap-3 text-sm font-black uppercase tracking-widest text-white/70 hover:text-white transition-colors group w-full sm:w-auto"
             >
               Get Custom Quote
-              <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+              <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform shrink-0" />
             </Link>
           </Magnetic>
         </motion.div>

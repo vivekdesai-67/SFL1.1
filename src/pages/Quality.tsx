@@ -2,7 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { ShieldCheck, ScanLine, Target, RefreshCw, Award, ChevronDown } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Progress } from "@/components/ui/progress";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -58,6 +58,21 @@ const pillars = [
 const Quality = () => {
   const [instrFilter, setInstrFilter] = useState("All");
   const [showAllInstr, setShowAllInstr] = useState(false);
+  const qualityVideoRef = useRef<HTMLVideoElement>(null);
+
+  // Force video play on mobile
+  useEffect(() => {
+    const video = qualityVideoRef.current;
+    if (!video) return;
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay prevented; poster shown
+      });
+    }
+  }, []);
+
   const filteredInstr = instrFilter === "All" ? instruments : instruments.filter(i => i.category === instrFilter);
   const displayedInstr = showAllInstr ? filteredInstr : filteredInstr.slice(0, 15);
 
@@ -79,11 +94,14 @@ const Quality = () => {
         {/* Cinematic Background Video */}
         <div className="absolute inset-0 z-0 opacity-70 overflow-hidden pointer-events-none">
           <video 
+            ref={qualityVideoRef}
             autoPlay 
             loop 
             muted 
             playsInline 
-            className="w-full h-full object-cover scale-105"
+            preload="auto"
+            poster="/quality-hero-bg.jpg"
+            className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/cnc-lathe.mp4?v=4" type="video/mp4" />
           </video>

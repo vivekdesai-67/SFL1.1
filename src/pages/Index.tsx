@@ -8,6 +8,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Link } from "react-router-dom";
 import { ShieldCheck, Award, Cpu, ArrowUpRight } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 const Index = () => {
   return (
@@ -82,33 +83,35 @@ const Index = () => {
                 },
               ].map((card) => (
                 <div key={card.title} className="h-full">
-                  <Link
-                    to={card.link}
-                    className="group block h-full rounded-2xl glass-panel glass-panel-hover p-6 sm:p-10 relative overflow-hidden flex flex-col"
-                  >
-                    {/* Blue glow */}
-                    <div className="absolute top-0 right-0 w-40 h-40 bg-sfl-blue/10 blur-3xl rounded-full group-hover:bg-sfl-blue/20 transition-colors duration-500 pointer-events-none" />
-                    {/* Shine sweep */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out pointer-events-none" />
-                    
-                    <div className="mb-8 p-4 bg-white/5 rounded-xl border border-white/10 w-fit group-hover:bg-sfl-blue/20 group-hover:border-sfl-blue transition-all duration-500">
-                      <card.icon 
-                        className="w-8 h-8 text-sfl-blue group-hover:scale-110 transition-transform duration-500" 
-                        strokeWidth={1.5} 
-                      />
-                    </div>
-                    <h3 className="text-xl font-black uppercase tracking-widest mb-4 text-white">
-                      {card.title}
-                    </h3>
-                     <p className="text-sm text-slate-400 leading-relaxed mb-10 font-medium group-hover:opacity-100 transition-opacity">
-                      {card.desc}
-                    </p>
-                    
-                    <div className="mt-auto flex items-center gap-3 text-[10px] text-white font-black uppercase tracking-[0.2em] group-hover:text-sfl-blue transition-colors duration-300">
-                      Learn More 
-                      <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                    </div>
-                  </Link>
+                  <Magnetic>
+                    <Link
+                      to={card.link}
+                      className="group block h-full rounded-2xl glass-panel glass-panel-hover p-6 sm:p-10 relative overflow-hidden flex flex-col"
+                    >
+                      {/* Blue glow */}
+                      <div className="absolute top-0 right-0 w-40 h-40 bg-sfl-blue/10 blur-3xl rounded-full group-hover:bg-sfl-blue/20 transition-colors duration-500 pointer-events-none" />
+                      {/* Shine sweep */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                      
+                      <div className="mb-8 p-4 bg-white/5 rounded-xl border border-white/10 w-fit group-hover:bg-sfl-blue/20 group-hover:border-sfl-blue transition-all duration-500">
+                        <card.icon 
+                          className="w-8 h-8 text-sfl-blue group-hover:scale-110 transition-transform duration-500" 
+                          strokeWidth={1.5} 
+                        />
+                      </div>
+                      <h3 className="text-xl font-black uppercase tracking-widest mb-4 text-white">
+                        {card.title}
+                      </h3>
+                       <p className="text-sm text-slate-400 leading-relaxed mb-10 font-medium group-hover:opacity-100 transition-opacity">
+                        {card.desc}
+                      </p>
+                      
+                      <div className="mt-auto flex items-center gap-3 text-[10px] text-white font-black uppercase tracking-[0.2em] group-hover:text-sfl-blue transition-colors duration-300">
+                        Learn More 
+                        <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                      </div>
+                    </Link>
+                  </Magnetic>
                 </div>
               ))}
             </div>

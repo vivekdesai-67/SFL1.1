@@ -52,7 +52,7 @@ export function StatsSection() {
           />
         
         <ScrollReveal direction="up" className="mb-20">
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-display font-black uppercase tracking-tighter text-white flex flex-wrap items-baseline gap-8">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-display font-black uppercase tracking-tighter text-white flex flex-col sm:flex-row sm:items-baseline sm:gap-4">
             <span>Infrastructure Built</span>
             <span className="font-light opacity-50">For Global Scale</span>
           </h2>
